@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-special-blue: #0CA0E4;
+            --color-special-green: #DCF9E3;
+        }
+    </style>
+    <title>CiriUAE - Comprehensive Business Consulting Services</title>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header
+        class="container mx-auto px-6 sm:px-12 py-4 flex items-center justify-between border-b border-gray-200 relative z-50">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+            <img src="assets/logo.jpg" alt="CIRIUAE Logo" class="h-12 w-auto" />
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden sm:flex items-center space-x-6 ">
+            <a href="#" class="text-special-blue font-medium">Home</a>
+            <a href="#" class="text-gray-700 hover:text-special-blue">About</a>
+            <a href="#" class="text-gray-700 hover:text-special-blue">Services</a>
+            <a href="#" class="text-gray-700 hover:text-special-blue">Careers</a>
+            <a href="#" class="text-gray-700 hover:text-special-blue">Contact</a>
+        </nav>
+
+        <div class="hidden md:flex items-center">
+            <a href="#"
+                class="bg-special-blue/10 text-black px-6 py-2 rounded-md hover:bg-special-blue/15 text-lg underline">
+                Sign In
+            </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menu-toggle"
+            class="sm:hidden group flex flex-col justify-between w-6 h-6 focus:outline-none z-50 cursor-pointer"
+            aria-label="Toggle menu" aria-expanded="false">
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300 origin-top-left "></span>
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300"></span>
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300 origin-bottom-left"></span>
+        </button>
+    </header>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="sm:hidden hidden fixed top-[72px] w-full h-[90vh] z-40 bg-white/80 p-8 border-b border-gray-200 animate-fade-in-down flex flex-col gap-4 items-center text-center text-xl font-light backdrop-blur-sm">
+        <a href="" class="px-12 py-3 bg-slate-50 rounded-full w-xs">Home</a>
+        <a href="" class="px-12 py-3 hover:bg-slate-50 rounded-full w-xs">About</a>
+        <a href="" class="px-12 py-3 hover:bg-slate-50 rounded-full w-xs">Services</a>
+        <a href="" class="px-12 py-3 hover:bg-slate-50 rounded-full w-xs">Careers</a>
+        <a href="" class="px-12 py-3 hover:bg-slate-50 rounded-full w-xs">Contact</a>
+        <a href="" class="px-12 py-3 hover:bg-slate-50 rounded-full w-xs">FAQ's</a>
+        <a href="" class="px-12 py-3 hover:bg-slate-50 rounded-full w-xs">Blogs</a>
+        <a href="" class="px-12 py-3 bg-special-blue rounded-full w-xs">Sign In</a>
+    </div>
+
+    <!-- main -->
+    <main>
+        <!-- Top Section -->
+        <section class="container mx-auto mb-20 text-center text-black">
+            <h2 class="text-sm uppercase tracking-wide mb-4 mt-12 font-bold">Welcome to CIRIUAE</h2>
+            <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light mb-18 px-4 leading-snug">
+                Your trusted partner in management consulting excellence
+            </h1>
+
+            <div class="relative w-full h-72 flex items-center justify-center overflow-hidden">
+                <div id="slider" class="relative w-full h-full flex items-center justify-center">
+
+                </div>
+            </div>
+            <script>
+                const images = [
+                    "assets/top_banner_1.png",
+                    "assets/top_banner_2.png",
+                    "assets/top_banner_1.png",
+                ];
+
+                const slider = document.getElementById("slider");
+                let current = 0;
+
+                function createImage(src, position) {
+                    const img = document.createElement("img");
+                    img.src = src;
+                    img.className =
+                        "slider-image absolute rounded-lg object-cover shadow-lg";
+
+                    if (position === "center") {
+                        img.className += "w-96 z-10";
+                        img.style.left = "50%";
+                        img.style.transform = "translateX(-50%) scale(1.1)";
+                    } else if (position === "left") {
+                        img.className += " w-64 opacity-70";
+                        img.style.left = "10%";
+                    } else if (position === "right") {
+                        img.className += " w-64 opacity-70";
+                        img.style.right = "10%";
+                    }
+
+                    return img;
+                }
+
+                function renderSlider() {
+                    slider.innerHTML = "";
+
+                    const prevIndex = (current - 1 + images.length) % images.length;
+                    const nextIndex = (current + 1) % images.length;
+
+                    slider.appendChild(createImage(images[prevIndex], "left"));
+                    slider.appendChild(createImage(images[current], "center"));
+                    slider.appendChild(createImage(images[nextIndex], "right"));
+                }
+
+                setInterval(() => {
+                    current = (current + 1) % images.length;
+                    renderSlider();
+                }, 2500);
+
+                window.addEventListener("load", renderSlider);
+            </script>
+
+            <a href="#"
+                class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 text-black rounded-full hover:bg-special-blue/15 shadow-sm transition mt-12">
+                Get Start Today
+                <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                    <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                </span>
+            </a>
+        </section>
+
+        <!-- Business Solutions Section -->
+        <section class="flex flex-col md:flex-row items-start justify-between bg-special-green container mx-auto mb-20">
+
+            <!-- Left Text Section -->
+            <div class="w-full h-full md:w-1/2 p-12 space-y-12 text-start font-light text-black">
+                <div>
+                    <h2 class="text-2xl md:text-5xl leading-snug">
+                        We provide comprehensive <br class="hidden md:block" /> business solutions,
+                    </h2>
+                    <p class="md:text-xl mt-6">
+                        Strategic guidance, and innovative approaches to help your organization achieve sustainable
+                        growth.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl md:text-5xl mb-6">Our Value Proposition</h3>
+                    <ul class="space-y-4 md:text-xl">
+                        <li class="flex items-center gap-3 text-start">
+                            <i class="fa fa-check text-gray-600" aria-hidden="true"></i>
+                            Expert strategic consulting services
+                        </li>
+                        <li class="flex items-center gap-3 text-start">
+                            <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                            Tailored solutions for your industry
+                        </li>
+                        <li class="flex items-center gap-3 text-start">
+                            <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                            Proven track record of success
+                        </li>
+                        <li class="flex items-center gap-3 text-start">
+                            <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                            Innovative business methodologies
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Image Section -->
+            <div class="w-full md:w-1/2 h-full">
+                <img src="assets/soltions.png" alt="Business Solutions" class="w-full h-full object-cover " />
+            </div>
+
+        </section>
+
+        <!-- About Section -->
+        <section class="container mx-auto md:mb-20 mb-8 px-4 md:px-12 flex flex-col lg:flex-row items-start text-black">
+
+            <!-- Left: Image -->
+            <div class="w-full lg:w-1/2">
+                <img src="assets/about.png" alt="Team Meeting" class="w-full h-auto rounded-2xl object-cover" />
+            </div>
+
+            <!-- Right: Content -->
+            <div class="w-full lg:w-1/2 space-y-4 px-4 py-12 md:px-12">
+                <h3 class="text-sm font-bold uppercase tracking-wide">About CIRIUAE</h3>
+                <h2 class="text-2xl md:text-5xl font-light leading-snug">
+                    Founded with the vision of transforming businesses
+                </h2>
+                <p class="font-light md:text-xl">
+                    through strategic consulting and innovative solutions. Our mission is to empower organizations
+                    with the tools and strategies they need to thrive in competitive markets.
+                </p>
+
+                <a href="#"
+                    class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 text-black rounded-md hover:bg-special-blue/15 shadow-sm transition mt-12">
+                    More Info
+                    <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                        <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="container mx-auto mb-20 px-4 md:px-12 text-center space-y-12 text-black">
+            <div>
+                <h3 class="text-sm font-bold uppercase tracking-wide">Our Services</h3>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light mt-4 px-4 leading-snug">
+                    We provide comprehensive business solutions tailored to your specific needs
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto leading-snug font-light md:text-xl">
+                    Our expert team delivers strategic guidance and innovative approaches to help your organization
+                    achieve sustainable growth and competitive advantage.
+                </p>
+            </div>
+
+            <!-- Service Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img src="assets/services/Marketing_Strategy.png" alt="Marketing"
+                        class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Marketing Strategy</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            We craft data-driven, market-specific marketing strategies that align with your brand vision
+                            and business goals. Our approach involves in-depth market analysis, competitive positioning,
+                            customer profiling, and campaign planning to boost visibility, engagement, and conversions
+                            across key markets.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img src="assets/services/New_Business_Territory.png" alt="New Business"
+                        class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">New Business Territory Services</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            CiriUAE assists businesses in exploring and entering new territories with confidence. We
+                            provide end-to-end support in market entry strategy, regulatory compliance, competitive
+                            landscape evaluation, localization plans, and go-to-market execution.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img src="assets/services/Business_Development_Strategy.png" alt="Business Dev"
+                        class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Business Development Strategy</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            Our team develops customized business development blueprints that identify growth areas,
+                            strategic leads, partnership opportunities, and expansion tactics to scale businesses
+                            sustainably in new and existing markets.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="#"
+                class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 text-black rounded-md hover:bg-special-blue/15 shadow-sm transition">
+                More Services
+                <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                    <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                </span>
+            </a>
+        </section>
+
+        <!-- We Are Hiring Section -->
+        <section class="container mx-auto mb-20 flex flex-col md:flex-row items-start justify-center">
+
+            <!-- Left Image -->
+            <div class="md:w-1/2 w-full p-4 md:p-0">
+                <img src="assets/hiring.png" alt="Hiring"
+                    class="w-full h-60 md:h-auto rounded-lg md:rounded-none object-cover" />
+            </div>
+
+            <!-- Right Form -->
+            <div class="md:w-2/3 w-full h-full p-8 md:p-12 space-y-8 text-black">
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wide">We Are Hiring!</h4>
+                    <h2 class="text-2xl md:text-5xl font-light leading-snug mt-4">Join Our Team</h2>
+                    <p class="font-light md:text-xl mt-4">
+                        At CiriUAE, we're passionate about helping businesses grow and thrive. We're always looking for
+                        talented individuals to join our team and contribute to our mission. Check out our current job
+                        openings and apply today!
+                    </p>
+                </div>
+
+                <form class="space-y-4">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-1">
+                            <label class="block mb-1">Name*</label>
+                            <input type="text" placeholder="Your name"
+                                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                required>
+                        </div>
+                        <div class="flex-1">
+                            <label class="block mb-1">Phone*</label>
+                            <input type="tel" placeholder="Your phone"
+                                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block mb-1">Email*</label>
+                        <input type="email" placeholder="Your email"
+                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            required>
+                    </div>
+
+                    <div>
+                        <label class="block mb-1">Message</label>
+                        <textarea rows="4" placeholder="Your message"
+                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block mb-1">Attach Resume*</label>
+                        <div
+                            class="w-full border-2 border-dashed border-gray-300 p-4 rounded-md text-center cursor-pointer hover:bg-gray-50">
+                            <p class="text-gray-500">Click to upload or drag files here</p>
+                            <input type="file" class="hidden" required>
+                        </div>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-black text-white py-3 rounded-md hover:bg-gray-900 transition cursor-pointer">
+                        Submit Application
+                    </button>
+                </form>
+
+                <p class="text-xs text-gray-500">
+                    This site is protected by reCAPTCHA and the Google <a href="#"
+                        class="underline text-special-blue">Privacy Policy</a>
+                    and <a href="#" class="underline text-special-blue">Terms of Service</a> apply.
+                </p>
+            </div>
+        </section>
+
+        <!-- Industries We Serve Section -->
+        <section class="container mx-auto mb-20 px-4 md:px-12 text-center space-y-12 text-black">
+            <div>
+                <h3 class="text-sm font-bold uppercase tracking-wide">Industries We Serve</h3>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light mt-4 px-4 leading-snug">
+                    At CiriUAE, we understand that each industry has its own ecosystem
+                </h1>
+                <p class="mt-4 max-w-5xl mx-auto leading-snug font-light md:text-xl">
+                    —unique challenges, customer expectations, and compliance standards. That's why we develop tailored
+                    strategies and services to drive measurable results for your specific domain. Whether you're in
+                    healthcare, finance, or emerging technology, our expertise helps you solve problems, seize
+                    opportunities, and scale sustainably.
+                </p>
+            </div>
+
+            <!-- Industries Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img src="assets/industries/healthcare.png" alt="healthcare" class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Healthcare</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            Healthcare organizations today face rising patient expectations, strict regulatory demands,
+                            and the need for digital transformation.
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-start px-8 mb-8 space-y-4">
+                        <h4 class="text-2xl">We help you:</h4>
+                        <ul class="space-y-4 font-light">
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden="true"></i>
+                                Streamline clinical and administrative workflows
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Enhance patient engagement with digital tools
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Ensure data security and compliance (HIPAA, GDPR)
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Adopt technologies like telemedicine, AI diagnostics, and EHR integrations
+                            </li>
+                        </ul>
+                        <div class="p-4 border-l-4 border-special-blue rounded-sm bg-white/50 mt-4">
+                            <p class="text-start">
+                                <span class="text-special-blue font-bold">Outcome: </span>
+                                Improved efficiency, better patient care, and faster innovation in healthcare delivery.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img src="assets/industries/finance.png" alt="finance" class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Finance</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            The financial sector demands precision, compliance, and innovation. From banking to fintech,
+                            we provide robust, future-ready solutions.
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-start px-8 mb-8 space-y-4">
+                        <h4 class="text-2xl">We help you:</h4>
+                        <ul class="space-y-4 font-light">
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden="true"></i>
+                                Strengthen cybersecurity and risk management
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Improve digital customer experiences
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Automate workflows and reporting
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Stay compliant with global financial regulations
+                            </li>
+                        </ul>
+                        <div class="p-4 border-l-4 border-special-blue rounded-sm bg-white/50 mt-4">
+                            <p class="text-start">
+                                <span class="text-special-blue font-bold">Outcome: </span>
+                                More secure, agile, and customer-centric financial operations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img src="assets/industries/technology.png" alt="technology" class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Technology</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            In the tech industry, speed, scalability, and innovation are non-negotiable. We partner with
+                            startups, SaaS companies, and IT enterprises to accelerate digital success.
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-start px-8 mb-8 space-y-4">
+                        <h4 class="text-2xl">We help you:</h4>
+                        <ul class="space-y-4 font-light">
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden="true"></i>
+                                Build scalable cloud and software solutions
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Optimize DevOps and product development cycles
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Enhance UI/UX and customer retention
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Integrate AI, ML, and data analytics
+                            </li>
+                        </ul>
+                        <div class="p-4 border-l-4 border-special-blue rounded-sm bg-white/50 mt-4">
+                            <p class="text-start">
+                                <span class="text-special-blue font-bold">Outcome: </span>
+                                Faster innovation, improved product delivery, and stronger market positioning.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="#"
+                class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 text-black rounded-md hover:bg-special-blue/15 shadow-sm transition">
+                More Industries
+                <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                    <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                </span>
+            </a>
+        </section>
+
+        <!-- Case Studies Section -->
+        <section
+            class="container mx-auto space-x-12 mb-20 px-4 md:px-12 flex flex-col lg:flex-row items-start flex-col-reverse text-black">
+            <!-- Left: Content -->
+            <div class="w-full lg:w-1/2 space-y-4 px-4 md:px-0 md:pt-12 ">
+                <h3 class="text-sm font-bold uppercase tracking-wide">CASE STUDIES</h3>
+                <h2 class="text-2xl md:text-5xl font-light leading-snug">
+                    Real-life examples of successful projects and client testimonials
+                </h2>
+                <p class="font-light md:text-xl">
+                    Discover how we've helped businesses transform their operations, increase revenue, and achieve
+                    sustainable growth through our proven methodologies.
+                </p>
+                <div class="p-4 border-l-4 border-special-blue bg-slate-50 rounded-sm  mt-8">
+                    <p class="text-start font-light mb-2">
+                        "CiriUAE transformed our business strategy and helped us achieve 300% growth in just 18 months."
+                    </p>
+                    <h2>- CEO, CiriUAE (Tech Startup)</h2>
+                </div>
+                <a href="#"
+                    class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 text-black rounded-md hover:bg-special-blue/15 shadow-sm transition mt-12">
+                    More Studies
+                    <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                        <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Right: Image -->
+            <div class="w-full lg:w-1/2 mb-12 md:mb-0">
+                <img src="assets/studies.png" alt="Team Meeting" class="w-full h-auto rounded-2xl object-cover" />
+            </div>
+        </section>
+
+        <!-- Blogs Section -->
+        <section class="container mx-auto md:mb-20 mb-8 px-4 md:px-12 flex flex-col lg:flex-row items-start text-black">
+            <!-- Left: Image -->
+            <div class="w-full lg:w-1/2">
+                <img src="assets/blogs.png" alt="Team Meeting" class="w-full h-auto rounded-2xl object-cover" />
+            </div>
+
+            <!-- Right: Content -->
+            <div class="w-full lg:w-1/2 space-y-4 px-4 py-12 md:px-12">
+                <h3 class="text-sm font-bold uppercase tracking-wide">Blogs</h3>
+                <h2 class="text-2xl md:text-5xl font-light leading-snug">
+                    Insights, news, and thought leadership articles on
+                </h2>
+                <p class="font-light md:text-xl">
+                    management consulting and industry trends. Stay updated with the latest business strategies, market
+                    insights, and expert opinions from our team of seasoned consultants.
+                </p>
+                <div class="space-y-4 mt-8">
+                    <div class="p-4 border-l-4 border-special-blue bg-slate-50 rounded-sm ">
+                        <h2>Latest Article: Digital Transformation in 2025</h2>
+                        <p class="text-start font-light mt-2">
+                            Exploring the key trends shaping digital transformation...
+                        </p>
+                    </div>
+                    <div class="p-4 border-l-4 border-special-blue bg-slate-50 rounded-sm">
+                        <h2>Market Analysis: UAE Business Landscape</h2>
+                        <p class="text-start font-light mt-2">
+                            Comprehensive analysis of emerging opportunities...
+                        </p>
+                    </div>
+                </div>
+
+                <a href="#"
+                    class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 text-black rounded-md hover:bg-special-blue/15 shadow-sm transition mt-8">
+                    More Blogs
+                    <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                        <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Get In Toch Section -->
+        <section
+            class="container mx-auto space-x-12 mb-20 px-4 md:px-12 flex flex-col lg:flex-row items-start flex-col-reverse text-black">
+            <!-- Left: Content -->
+            <div class="w-full lg:w-1/2 space-y-4 px-4 md:px-0 md:pt-12 ">
+                <h3 class="text-sm font-bold uppercase tracking-wide">GET IN TOUCH</h3>
+                <h2 class="text-2xl md:text-5xl font-light leading-snug">
+                    Ready to transform your business?
+                </h2>
+                <p class="font-light md:text-xl">
+                    Get in touch with our expert consultants today and discover how we can help you achieve your goals.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                    <!-- Business Hours -->
+                    <div class="bg-special-blue/10 p-6 rounded-xl">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i class="fas fa-clock text-special-blue"></i>
+                            <span class="text-xl font-semibold">Business Hours</span>
+                        </div>
+                        <p class="md:text-xl font-light">Open Today:<br>09:00 am – 05:00 pm</p>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="bg-special-blue/10 p-6 rounded-xl">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i class="fas fa-map-marker-alt text-special-blue"></i>
+                            <span class="text-xl font-semibold">Location</span>
+                        </div>
+                        <p class="md:text-xl font-light">Free Zone – Ajman – United Arab Emirates</p>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="bg-special-blue/10 p-6 rounded-xl">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i class="fas fa-phone-alt text-special-blue"></i>
+                            <span class="text-xl font-semibold">Contact Information</span>
+                        </div>
+                        <p class="md:text-xl font-light">Phone: +971582428422<br>Email: <a
+                                href="mailto:inquiry@ciriuae.com"
+                                class="text-blue-600 hover:underline">inquiry@ciriuae.com</a></p>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div class="bg-special-blue/10 p-6 rounded-xl">
+                        <span class="text-xl mb-4 block semibold">Follow Us</span>
+                        <div class="flex gap-3">
+                            <a href="#"
+                                class="bg-black text-white rounded-lg w-12 h-12 hover:bg-black/80 flex items-center justify-center"><i
+                                    class="fab fa-x-twitter"></i></a>
+                            <a href="#"
+                                class="bg-green-500 text-white rounded-lg w-12 h-12 hover:bg-green-500/80 flex items-center justify-center"><i
+                                    class="fab fa-whatsapp"></i></a>
+                            <a href="#"
+                                class="bg-blue-600 text-white rounded-lg w-12 h-12 hover:bg-blue-600/80 flex items-center justify-center"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a href="#"
+                                class="bg-red-500 text-white rounded-lg w-12 h-12 hover:bg-red-500/80 flex items-center justify-center"><i
+                                    class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Image -->
+            <div class="w-full lg:w-1/2 mb-12 md:mb-0">
+                <img src="assets/contact.png" alt="contact" class="w-full h-auto rounded-2xl object-cover" />
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section
+            class="container mx-auto mb-20 md:mb-0 flex flex-col md:flex-row items-start justify-center bg-special-blue/10">
+
+            <!-- Left Image -->
+            <div class="md:w-1/2 w-full ">
+                <img src="assets/resources.png" alt="Resources" class="w-full h-auto object-cover" />
+            </div>
+
+            <!-- Right Form -->
+            <div class="md:w-1/2 w-full h-full p-8 md:p-12 space-y-12 text-black">
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wide">RESOURCES</h4>
+                    <h2 class="text-2xl md:text-5xl font-light leading-snug mt-4">Library of whitepapers, e-books,
+                        webinars, and downloadable resources</h2>
+                </div>
+
+                <a href="#"
+                    class="inline-flex items-center justify-center px-6 py-3 bg-white text-black rounded-md hover:bg-slate-50 shadow-sm transition mt-8">
+                    More Resources
+                    <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                        <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section
+            class="container mx-auto mb-20 flex flex-col md:flex-row items-start justify-center bg-special-blue/10">
+
+            <!-- Left Form -->
+            <div class="md:w-1/2 w-full h-full p-8 md:p-12 space-y-12 text-black ">
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wide">NEWS</h4>
+                    <h2 class="text-2xl md:text-5xl font-light leading-snug mt-4">Latest news and press releases about
+                        CiriUAE</h2>
+                </div>
+
+                <a href="#"
+                    class="md:inline-flex items-center justify-center px-6 py-3 bg-white text-black rounded-md hover:bg-slate-50 shadow-sm transition mt-8 hidden">
+                    View All News
+                    <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                        <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Right Image -->
+            <div class="md:w-1/2 w-full p-8 md:p-12 bg-white">
+                <div class="space-y-4">
+                    <div class="p-4 border-l-4 border-special-blue bg-slate-50 rounded-sm ">
+                        <div class="flex flex-col md:flex-row justify-between md:items-center gap-2">
+                            <h2>CiriConsult Launches Expansion Support Program for Emerging markets</h2>
+                            <p class="text-xs text-special-blue text-nowrap">July 25, 2025</p>
+                        </div>
+                        <div class="flex">
+                            <p class="text-start font-light mt-2">
+                                Our newly launched program is aimed at helping international brands scale efficiently
+                                into
+                                Asia and the Middle East through local CXO deployment, legal compliance setup, and sales
+                                enablement.
+                            </p>
+                            <span
+                                class="mt-1 ml-1 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                                <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-4 border-l-4 border-special-blue bg-slate-50 rounded-sm ">
+                        <div class="flex flex-col md:flex-row justify-between md:items-center gap-2">
+                            <h2>AI & Automation Strategy Services Now Live</h2>
+                            <p class="text-xs text-special-blue text-nowrap">July 15, 2025</p>
+                        </div>
+                        <div class="flex">
+                            <p class="text-start font-light mt-2">
+                                We now offer a full-service AI consulting package to help mid-sized businesses adopt
+                                automation, improve workflow efficiency, and reduce operational costs.
+                            </p>
+                            <span
+                                class="mt-1 ml-1 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                                <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-4 border-l-4 border-special-blue bg-slate-50 rounded-sm ">
+                        <div class="flex flex-col md:flex-row justify-between md:items-center gap-2">
+                            <h2>Partnership with FinGrow Capital Announced</h2>
+                            <p class="text-xs text-special-blue text-nowrap">May 30, 2025</p>
+                        </div>
+                        <div class="flex">
+                            <p class="text-start font-light mt-2">
+                                CiriConsult has partnered with FinGrow Capital to support SMEs with digital
+                                transformation
+                                funding and implementation strategies.
+                            </p>
+                            <span
+                                class="mt-1 ml-1 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                                <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#"
+                    class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 md:bg-white text-black rounded-md hover:bg-special-blue/15 md:hover:bg-slate-50 shadow-sm transition mt-8 md:hidden">
+                    View All News
+                    <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                        <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- FAQ's Section -->
+        <section class="container mx-auto mb-20 px-4 md:px-12 text-center space-y-12 text-black">
+            <div>
+                <h3 class="text-sm font-bold uppercase tracking-wide">Frequently Asked Questions</h3>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light mt-4 px-4 leading-snug">
+                    Frequently asked questions about CiriUAE services and company
+                </h1>
+            </div>
+
+            <!-- Qestions -->
+            <div class="max-w-2xl mx-auto p-4 md:p-0 space-y-4">
+                <div class="faq-item hover:border border-gray-200 md:text-xl" onclick="toggleFAQ(this)">
+                    <div class="flex justify-between">
+                        <h3 class="text-wrap w-5/6">What is SEO and why is it important?</h3>
+                        <button class="toggle">+</button>
+                    </div>
+                    <p class="faq-answer font-light">What industries do you specialize in? We work with clients in
+                        healthcare, retail, manufacturing, fintech, and technology. We also provide custom solutions for
+                        startups and NGOs.</p>
+                </div>
+                <div class="faq-item hover:border border-gray-200 md:text-xl" onclick="toggleFAQ(this)">
+                    <div class="flex justify-between">
+                        <h3 class="text-wrap w-5/6">Can I hire a consultant for a short-term project?</h3>
+                        <button class="toggle">+</button>
+                    </div>
+                    <p class="faq-answer font-light">Yes. We offer both project-based and retainer-based models,
+                        including
+                        fractional CXO support for specific durations.</p>
+                </div>
+                <div class="faq-item hover:border border-gray-200 md:text-xl" onclick="toggleFAQ(this)">
+                    <div class="flex justify-between">
+                        <h3 class="text-wrap w-5/6">What countries do you support for market entry consulting?</h3>
+                        <button class="toggle">+</button>
+                    </div>
+                    <p class="faq-answer font-light">We support market entry into India, UAE, Singapore, Saudi Arabia,
+                        and select European countries.</p>
+                </div>
+                <div class="faq-item hover:border border-gray-200 md:text-xl" onclick="toggleFAQ(this)">
+                    <div class="flex justify-between">
+                        <h3 class="text-wrap w-5/6">Do you provide funding or help in raising capital?</h3>
+                        <button class="toggle">+</button>
+                    </div>
+                    <p class="faq-answer font-light">While we are not a direct investor, we partner with VCs, angel
+                        networks, and finance consultants to help clients raise capital.</p>
+                </div>
+                <div class="faq-item hover:border border-gray-200 md:text-xl" onclick="toggleFAQ(this)">
+                    <div class="flex justify-between">
+                        <h3 class="text-wrap w-5/6">How do I start working with you?</h3>
+                        <button class="toggle">+</button>
+                    </div>
+                    <p class="faq-answer font-light">Simply fill out our contact form or schedule a free consultation.
+                        We'll evaluate your needs and propose a tailored strategy.</p>
+                </div>
+
+                <script>
+                    function toggleFAQ(element) {
+                        element.classList.toggle("active");
+                        let button = element.querySelector(".toggle");
+                        let isOpen = element.classList.contains("active");
+                        button.textContent = isOpen ? "-" : "+";
+                    }
+                </script>
+
+            </div>
+
+            <a href="#"
+                class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 text-black rounded-md hover:bg-special-blue/15 shadow-sm transition">
+                More FAQ's
+                <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                    <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                </span>
+            </a>
+        </section>
+
+        <!-- Request a Consultation Section -->
+        <section class="container mx-auto relative">
+            <div class="flex flex-col md:flex-row items-start justify-center bg-special-blue/10">
+                <!-- Left Form -->
+                <div class="md:w-1/2 w-full h-full p-8 md:p-12 space-y-12 text-black">
+                    <div>
+                        <h4 class="text-sm font-bold uppercase tracking-wide">Request a Consultation</h4>
+                        <h2 class="text-2xl md:text-5xl font-light leading-snug mt-4">Schedule a consultation with our
+                            expert consultants</h2>
+                    </div>
+
+                    <a href="#"
+                        class="inline-flex items-center justify-center px-6 py-3 bg-white text-black rounded-md hover:bg-slate-50 shadow-sm transition mt-8">
+                        Book Consultation
+                        <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                            <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Right Image -->
+                <div class="md:w-1/2 w-full ">
+                    <img src="assets/bottom.png" alt="Resources" class="w-full h-auto object-cover" />
+                </div>
+            </div>
+            <div class="w-full md:relative flex justify-center md:items-end">
+                <div
+                    class="md:absolute px-8 md:px-12 py-8 w-full md:max-w-6xl mx-auto z-20 bg-white/40 backdrop-blur-xs flex flex-col md:flex-row justify-between items-center gap-6 text-xl rounded-2xl mb-10 text-center">
+                    <p class="font-light">Subscribe to hear from us about specials, sales, and events.</p>
+                    <form action=""
+                        class="border border-gray-200 md:border-0 rounded-xl overflow-hidden bg-white text-sm flex justify-center items-center flex-nowrap">
+                        <input type="email" required class="p-3 outline-none" placeholder="Enter Email">
+                        <button type="submit" class="px-6 py-3 bg-special-blue/90 hover:bg-special-blue cursor-pointer">
+                            SUBSCRIBE
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container border-t border-gray-200">
+        <div class="w-full p-8 md:p-12 flex flex-col md:flex-row justify-between items-start gap-10 text-gray-800">
+
+            <div class="">
+                <h2 class="text-2xl font-light leading-snug">
+                    CiriUAE the Comprehensive<br />
+                    Business Consulting Services
+                </h2>
+            </div>
+
+            <!-- Center Navigation Links -->
+            <div class="flex flex-wrap gap-x-10 gap-y-2 text-xl font-light">
+                <div class="flex flex-col space-y-1">
+                    <a href="#" class="hover:underline">Home</a>
+                    <a href="#" class="hover:underline">About</a>
+                    <a href="#" class="hover:underline">Services</a>
+                    <a href="#" class="hover:underline">Contact</a>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <a href="#" class="hover:underline">Careers</a>
+                    <a href="#" class="hover:underline">Subscribe</a>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-2xl font-light leading-snug">
+                <h4>Follow Us</h4>
+                <div class="flex gap-6 text-gray-600 text-xl">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-100 py-6 text-center text-sm text-gray-500">
+            <p>Copyright © 2025 CiriUAE – All Rights Reserved.</p>
+            <p>Powered by <span class="font-medium text-gray-700">NextPhase</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
