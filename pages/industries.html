@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-special-blue: #0CA0E4;
+            --color-special-green: #DCF9E3;
+        }
+    </style>
+    <title>Blogs - CiriUAE</title>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header
+        class="container mx-auto px-6 sm:px-12 py-4 flex items-center justify-between border-b border-gray-200 relative z-50">
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-2">
+            <img src="/assets/logo.jpg" alt="CIRIUAE Logo" class="h-12 w-auto" />
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden sm:flex items-center space-x-6 text-black">
+            <a href="/" class="hover:text-special-blue">Home</a>
+            <a href="./about.html" class="hover:text-special-blue">About</a>
+            <a href="./services.html" class="hover:text-special-blue">Services</a>
+            <a href="./careers.html" class="hover:text-special-blue">Careers</a>
+            <a href="./blogs.html" class="hover:text-special-blue">Blogs</a>
+            <a href="./contact.html" class="hover:text-special-blue">Contact</a>
+        </nav>
+
+        <div class="hidden md:flex items-center">
+            <a href="#"
+                class="bg-special-blue/10 text-black px-6 py-2 rounded-md hover:bg-special-blue/15 text-lg underline">
+                Sign In
+            </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menu-toggle"
+            class="sm:hidden group flex flex-col justify-between w-6 h-6 focus:outline-none z-50 cursor-pointer"
+            aria-label="Toggle menu" aria-expanded="false">
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300 origin-top-left "></span>
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300"></span>
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300 origin-bottom-left"></span>
+        </button>
+    </header>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="sm:hidden hidden fixed top-[72px] w-full h-[90vh] z-40 bg-white/80 p-8 border-b border-gray-200 animate-fade-in-down flex flex-col gap-4 items-center text-center  font-light backdrop-blur-sm">
+        <a href="/" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Home</a>
+        <a href="./about.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">About</a>
+        <a href="./services.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Services</a>
+        <a href="./careers.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Careers</a>
+        <a href="./contact.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Contact</a>
+        <a href="./blogs.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Blogs</a>
+        <a href="/auth/login.html" class="px-12 py-3 bg-special-blue hover:bg-special-blue/90 rounded-full w-xs">Sign
+            In</a>
+    </div>
+
+    <!-- Main -->
+    <main>
+        <!-- Industries We Serve Section -->
+        <section class="container mx-auto my-12 md:my-20 px-4 md:px-12 text-center space-y-12 text-black">
+            <div>
+                <h3 class="text-sm font-bold uppercase tracking-wide">Industries We Serve</h3>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light mt-4 px-4 leading-snug">
+                    At CiriUAE, we understand that each industry has its own ecosystem
+                </h1>
+                <p class="mt-4 max-w-5xl mx-auto leading-snug font-light md:text-xl">
+                    —unique challenges, customer expectations, and compliance standards. That's why we develop tailored
+                    strategies and services to drive measurable results for your specific domain. Whether you're in
+                    healthcare, finance, or emerging technology, our expertise helps you solve problems, seize
+                    opportunities, and scale sustainably.
+                </p>
+            </div>
+
+            <!-- Industries Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/industries/healthcare.png" alt="healthcare"
+                        class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Healthcare</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            Healthcare organizations today face rising patient expectations, strict regulatory demands,
+                            and the need for digital transformation.
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-start px-8 mb-8 space-y-4">
+                        <h4 class="text-2xl">We help you:</h4>
+                        <ul class="space-y-4 font-light">
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden="true"></i>
+                                Streamline clinical and administrative workflows
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Enhance patient engagement with digital tools
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Ensure data security and compliance (HIPAA, GDPR)
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Adopt technologies like telemedicine, AI diagnostics, and EHR integrations
+                            </li>
+                        </ul>
+                        <div class="p-4 border-l-4 border-special-blue rounded-sm bg-white/50 mt-4">
+                            <p class="text-start">
+                                <span class="text-special-blue font-bold">Outcome: </span>
+                                Improved efficiency, better patient care, and faster innovation in healthcare delivery.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/industries/finance.png" alt="finance"
+                        class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Finance</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            The financial sector demands precision, compliance, and innovation. From banking to fintech,
+                            we provide robust, future-ready solutions.
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-start px-8 mb-8 space-y-4">
+                        <h4 class="text-2xl">We help you:</h4>
+                        <ul class="space-y-4 font-light">
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden="true"></i>
+                                Strengthen cybersecurity and risk management
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Improve digital customer experiences
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Automate workflows and reporting
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Stay compliant with global financial regulations
+                            </li>
+                        </ul>
+                        <div class="p-4 border-l-4 border-special-blue rounded-sm bg-white/50 mt-4">
+                            <p class="text-start">
+                                <span class="text-special-blue font-bold">Outcome: </span>
+                                More secure, agile, and customer-centric financial operations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/industries/technology.png" alt="technology"
+                        class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Technology</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            In the tech industry, speed, scalability, and innovation are non-negotiable. We partner with
+                            startups, SaaS companies, and IT enterprises to accelerate digital success.
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-start px-8 mb-8 space-y-4">
+                        <h4 class="text-2xl">We help you:</h4>
+                        <ul class="space-y-4 font-light">
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden="true"></i>
+                                Build scalable cloud and software solutions
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Optimize DevOps and product development cycles
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Enhance UI/UX and customer retention
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Integrate AI, ML, and data analytics
+                            </li>
+                        </ul>
+                        <div class="p-4 border-l-4 border-special-blue rounded-sm bg-white/50 mt-4">
+                            <p class="text-start">
+                                <span class="text-special-blue font-bold">Outcome: </span>
+                                Faster innovation, improved product delivery, and stronger market positioning.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container border-t border-gray-200">
+        <div class="w-full p-8 md:p-12 flex flex-col md:flex-row justify-between items-start gap-10 text-gray-800">
+
+            <div class="">
+                <h2 class="text-2xl font-light leading-snug">
+                    CiriUAE the Comprehensive<br />
+                    Business Consulting Services
+                </h2>
+            </div>
+
+            <!-- Center Navigation Links -->
+            <div class="flex flex-wrap gap-x-10 gap-y-2 text-xl font-light">
+                <div class="flex flex-col space-y-1">
+                    <a href="/" class="hover:underline">Home</a>
+                    <a href="./about.html" class="hover:underline">About</a>
+                    <a href="./services.html" class="hover:underline">Services</a>
+                    <a href="./contact.html" class="hover:underline">Contact</a>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <a href="./careers.html" class="hover:underline">Careers</a>
+                    <a href="./subscribe.html" class="hover:underline">Subscribe</a>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-2xl font-light leading-snug">
+                <h4>Follow Us</h4>
+                <div class="flex gap-6 text-gray-600 text-xl">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-100 py-6 text-center text-sm text-gray-500">
+            <p>Copyright © 2025 CiriUAE – All Rights Reserved.</p>
+            <p>Powered by <span class="font-medium text-gray-700">NextPhase</span></p>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>

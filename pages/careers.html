@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-special-blue: #0CA0E4;
+            --color-special-green: #DCF9E3;
+        }
+    </style>
+    <title>Careers - CiriUAE</title>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header
+        class="container mx-auto px-6 sm:px-12 py-4 flex items-center justify-between border-b border-gray-200 relative z-50">
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-2">
+            <img src="/assets/logo.jpg" alt="CIRIUAE Logo" class="h-12 w-auto" />
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden sm:flex items-center space-x-6 ">
+            <a href="/" class="text-gray-700 hover:text-special-blue">Home</a>
+            <a href="./about.html" class="text-gray-700 hover:text-special-blue">About</a>
+            <a href="./services.html" class="text-gray-700 hover:text-special-blue">Services</a>
+            <a href="./careers.html" class="text-special-blue font-medium">Careers</a>
+            <a href="./blogs.html" class="text-gray-700 hover:text-special-blue">Blogs</a>
+            <a href="./contact.html" class="text-gray-700 hover:text-special-blue">Contact</a>
+        </nav>
+
+        <div class="hidden md:flex items-center">
+            <a href="#"
+                class="bg-special-blue/10 text-black px-6 py-2 rounded-md hover:bg-special-blue/15 text-lg underline">
+                Sign In
+            </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menu-toggle"
+            class="sm:hidden group flex flex-col justify-between w-6 h-6 focus:outline-none z-50 cursor-pointer"
+            aria-label="Toggle menu" aria-expanded="false">
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300 origin-top-left "></span>
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300"></span>
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300 origin-bottom-left"></span>
+        </button>
+    </header>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="sm:hidden hidden fixed top-[72px] w-full h-[90vh] z-40 bg-white/80 p-8 border-b border-gray-200 animate-fade-in-down flex flex-col gap-4 items-center text-center  font-light backdrop-blur-sm">
+        <a href="/" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Home</a>
+        <a href="./about.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">About</a>
+        <a href="./services.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Services</a>
+        <a href="./careers.html"
+            class="px-12 py-3 text-special-blue font-medium hover:bg-slate-100/50 rounded-full w-xs">Careers</a>
+        <a href="./contact.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Contact</a>
+        <a href="./blogs.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Blogs</a>
+        <a href="/auth/login.html" class="px-12 py-3 bg-special-blue hover:bg-special-blue/90 rounded-full w-xs">Sign
+            In</a>
+    </div>
+
+    <!-- Main -->
+    <main>
+        <!-- We Are Hiring Section -->
+        <section class="container mx-auto flex flex-col md:flex-row items-start justify-center">
+
+            <!-- Left Image -->
+            <div class="md:w-1/2 w-full p-4 md:p-0">
+                <img src="/assets/hiring.png" alt="Hiring"
+                    class="w-full md:h-auto rounded-lg md:rounded-none object-cover" />
+            </div>
+
+            <!-- Right Form -->
+            <div class="md:w-2/3 w-full h-full p-8 md:p-12 space-y-8 text-black">
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wide">We Are Hiring!</h4>
+                    <h2 class="text-2xl md:text-5xl font-light leading-snug mt-4">Join Our Team</h2>
+                    <p class="font-light md:text-xl mt-4">
+                        At CiriUAE, we're passionate about helping businesses grow and thrive. We're always looking for
+                        talented individuals to join our team and contribute to our mission. Check out our current job
+                        openings and apply today!
+                    </p>
+                </div>
+
+                <form class="space-y-4">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-1">
+                            <label class="block mb-1">Name*</label>
+                            <input type="text" placeholder="Your name"
+                                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                required>
+                        </div>
+                        <div class="flex-1">
+                            <label class="block mb-1">Phone*</label>
+                            <input type="tel" placeholder="Your phone"
+                                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block mb-1">Email*</label>
+                        <input type="email" placeholder="Your email"
+                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            required>
+                    </div>
+
+                    <div>
+                        <label class="block mb-1">Message</label>
+                        <textarea rows="4" placeholder="Your message"
+                            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block mb-1">Attach Resume*</label>
+                        <div
+                            class="w-full border-2 border-dashed border-gray-300 p-4 rounded-md text-center cursor-pointer hover:bg-gray-50">
+                            <p class="text-gray-500">Click to upload or drag files here</p>
+                            <input type="file" class="hidden" required>
+                        </div>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-black text-white py-3 rounded-md hover:bg-gray-900 transition cursor-pointer">
+                        Submit Application
+                    </button>
+                </form>
+
+                <p class="text-xs text-gray-500">
+                    This site is protected by reCAPTCHA and the Google <a href="#"
+                        class="underline text-special-blue">Privacy Policy</a>
+                    and <a href="#" class="underline text-special-blue">Terms of Service</a> apply.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container border-t border-gray-200">
+        <div class="w-full p-8 md:p-12 flex flex-col md:flex-row justify-between items-start gap-10 text-gray-800">
+
+            <div class="">
+                <h2 class="text-2xl font-light leading-snug">
+                    CiriUAE the Comprehensive<br />
+                    Business Consulting Services
+                </h2>
+            </div>
+
+            <!-- Center Navigation Links -->
+            <div class="flex flex-wrap gap-x-10 gap-y-2 text-xl font-light">
+                <div class="flex flex-col space-y-1">
+                    <a href="/" class="hover:underline">Home</a>
+                    <a href="./about.html" class="hover:underline">About</a>
+                    <a href="./services.html" class="hover:underline">Services</a>
+                    <a href="./contact.html" class="hover:underline">Contact</a>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <a href="./careers.html" class="hover:underline">Careers</a>
+                    <a href="./subscribe.html" class="hover:underline">Subscribe</a>
+                </div>
+            </div>
+
+
+            <div class="space-y-4 text-2xl font-light leading-snug">
+                <h4>Follow Us</h4>
+                <div class="flex gap-6 text-gray-600 text-xl">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-100 py-6 text-center text-sm text-gray-500">
+            <p>Copyright © 2025 CiriUAE – All Rights Reserved.</p>
+            <p>Powered by <span class="font-medium text-gray-700">NextPhase</span></p>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>

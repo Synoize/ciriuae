@@ -22,17 +22,18 @@
     <header
         class="container mx-auto px-6 sm:px-12 py-4 flex items-center justify-between border-b border-gray-200 relative z-50">
         <!-- Logo -->
-        <div class="flex items-center space-x-2">
+        <a href="/" class="flex items-center space-x-2">
             <img src="assets/logo.jpg" alt="CIRIUAE Logo" class="h-12 w-auto" />
-        </div>
+        </a>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden sm:flex items-center space-x-6 ">
-            <a href="#" class="text-special-blue font-medium">Home</a>
-            <a href="#" class="text-gray-700 hover:text-special-blue">About</a>
-            <a href="#" class="text-gray-700 hover:text-special-blue">Services</a>
-            <a href="#" class="text-gray-700 hover:text-special-blue">Careers</a>
-            <a href="#" class="text-gray-700 hover:text-special-blue">Contact</a>
+        <nav class="hidden sm:flex items-center space-x-6 text-black">
+            <a href="/" class="text-special-blue font-medium">Home</a>
+            <a href="pages/about.html" class="hover:text-special-blue">About</a>
+            <a href="pages/services.html" class="hover:text-special-blue">Services</a>
+            <a href="pages/careers.html" class="hover:text-special-blue">Careers</a>
+            <a href="pages/blogs.html" class="hover:text-special-blue">Blogs</a>
+            <a href="pages/contact.html" class="hover:text-special-blue">Contact</a>
         </nav>
 
         <div class="hidden md:flex items-center">
@@ -53,15 +54,15 @@
     </header>
     <!-- Mobile Menu -->
     <div id="mobile-menu"
-        class="sm:hidden hidden fixed top-[72px] w-full h-[90vh] z-40 bg-white/80 p-8 border-b border-gray-200 animate-fade-in-down flex flex-col gap-4 items-center text-center text-xl font-light backdrop-blur-sm">
-        <a href="" class="px-12 py-3 bg-slate-50 rounded-full w-xs">Home</a>
-        <a href="" class="px-12 py-3 hover:bg-slate-50 rounded-full w-xs">About</a>
-        <a href="" class="px-12 py-3 hover:bg-slate-50 rounded-full w-xs">Services</a>
-        <a href="" class="px-12 py-3 hover:bg-slate-50 rounded-full w-xs">Careers</a>
-        <a href="" class="px-12 py-3 hover:bg-slate-50 rounded-full w-xs">Contact</a>
-        <a href="" class="px-12 py-3 hover:bg-slate-50 rounded-full w-xs">FAQ's</a>
-        <a href="" class="px-12 py-3 hover:bg-slate-50 rounded-full w-xs">Blogs</a>
-        <a href="" class="px-12 py-3 bg-special-blue rounded-full w-xs">Sign In</a>
+        class="sm:hidden hidden fixed top-[72px] w-full h-[90vh] z-40 bg-white/80 p-8 border-b border-gray-200 animate-fade-in-down flex flex-col gap-4 items-center text-center  font-light backdrop-blur-sm">
+        <a href="/" class="px-12 py-3 text-special-blue font-medium hover:bg-slate-100/50 rounded-full w-xs">Home</a>
+        <a href="pages/about.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">About</a>
+        <a href="pages/services.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Services</a>
+        <a href="pages/careers.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Careers</a>
+        <a href="pages/contact.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Contact</a>
+        <a href="pages/blogs.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Blogs</a>
+        <a href="auth/login.html" class="px-12 py-3 bg-special-blue hover:bg-special-blue/90 rounded-full w-xs">Sign
+            In</a>
     </div>
 
     <!-- main -->
@@ -75,7 +76,6 @@
 
             <div class="relative w-full h-72 flex items-center justify-center overflow-hidden">
                 <div id="slider" class="relative w-full h-full flex items-center justify-center">
-
                 </div>
             </div>
             <script>
@@ -128,7 +128,7 @@
                 window.addEventListener("load", renderSlider);
             </script>
 
-            <a href="#"
+            <a href="/pages/contact.html"
                 class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 text-black rounded-full hover:bg-special-blue/15 shadow-sm transition mt-12">
                 Get Start Today
                 <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
@@ -177,7 +177,7 @@
 
             <!-- Right Image Section -->
             <div class="w-full md:w-1/2 h-full">
-                <img src="assets/soltions.png" alt="Business Solutions" class="w-full h-full object-cover " />
+                <img loading="lazy" src="assets/soltions.png" alt="Business Solutions" class="w-full h-full object-cover " />
             </div>
 
         </section>
@@ -187,7 +187,7 @@
 
             <!-- Left: Image -->
             <div class="w-full lg:w-1/2">
-                <img src="assets/about.png" alt="Team Meeting" class="w-full h-auto rounded-2xl object-cover" />
+                <img loading="lazy" src="assets/about.png" alt="Team Meeting" class="w-full h-auto rounded-2xl object-cover" />
             </div>
 
             <!-- Right: Content -->
@@ -201,7 +201,7 @@
                     with the tools and strategies they need to thrive in competitive markets.
                 </p>
 
-                <a href="#"
+                <a href="./pages/about.html"
                     class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 text-black rounded-md hover:bg-special-blue/15 shadow-sm transition mt-12">
                     More Info
                     <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
@@ -229,7 +229,7 @@
 
                 <div
                     class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
-                    <img src="assets/services/Marketing_Strategy.png" alt="Marketing"
+                    <img loading="lazy" src="assets/services/Marketing_Strategy.png" alt="Marketing"
                         class="w-full h-58 object-cover" />
                     <div class="p-8">
                         <h4 class="text-2xl">Marketing Strategy</h4>
@@ -244,7 +244,7 @@
 
                 <div
                     class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
-                    <img src="assets/services/New_Business_Territory.png" alt="New Business"
+                    <img loading="lazy" src="assets/services/New_Business_Territory.png" alt="New Business"
                         class="w-full h-58 object-cover" />
                     <div class="p-8">
                         <h4 class="text-2xl">New Business Territory Services</h4>
@@ -258,7 +258,7 @@
 
                 <div
                     class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
-                    <img src="assets/services/Business_Development_Strategy.png" alt="Business Dev"
+                    <img loading="lazy" src="assets/services/Business_Development_Strategy.png" alt="Business Dev"
                         class="w-full h-58 object-cover" />
                     <div class="p-8">
                         <h4 class="text-2xl">Business Development Strategy</h4>
@@ -272,7 +272,7 @@
 
             </div>
 
-            <a href="#"
+            <a href="./pages/services.html"
                 class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 text-black rounded-md hover:bg-special-blue/15 shadow-sm transition">
                 More Services
                 <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
@@ -286,7 +286,7 @@
 
             <!-- Left Image -->
             <div class="md:w-1/2 w-full p-4 md:p-0">
-                <img src="assets/hiring.png" alt="Hiring"
+                <img loading="lazy" src="assets/hiring.png" alt="Hiring"
                     class="w-full h-60 md:h-auto rounded-lg md:rounded-none object-cover" />
             </div>
 
@@ -374,7 +374,7 @@
 
                 <div
                     class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
-                    <img src="assets/industries/healthcare.png" alt="healthcare" class="w-full h-58 object-cover" />
+                    <img loading="lazy" src="assets/industries/healthcare.png" alt="healthcare" class="w-full h-58 object-cover" />
                     <div class="p-8">
                         <h4 class="text-2xl">Healthcare</h4>
                         <p class="font-light md:text-lg mt-2">
@@ -413,7 +413,7 @@
 
                 <div
                     class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
-                    <img src="assets/industries/finance.png" alt="finance" class="w-full h-58 object-cover" />
+                    <img loading="lazy" src="assets/industries/finance.png" alt="finance" class="w-full h-58 object-cover" />
                     <div class="p-8">
                         <h4 class="text-2xl">Finance</h4>
                         <p class="font-light md:text-lg mt-2">
@@ -452,7 +452,7 @@
 
                 <div
                     class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
-                    <img src="assets/industries/technology.png" alt="technology" class="w-full h-58 object-cover" />
+                    <img loading="lazy" src="assets/industries/technology.png" alt="technology" class="w-full h-58 object-cover" />
                     <div class="p-8">
                         <h4 class="text-2xl">Technology</h4>
                         <p class="font-light md:text-lg mt-2">
@@ -491,7 +491,7 @@
 
             </div>
 
-            <a href="#"
+            <a href="./pages/industries.html"
                 class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 text-black rounded-md hover:bg-special-blue/15 shadow-sm transition">
                 More Industries
                 <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
@@ -530,7 +530,7 @@
 
             <!-- Right: Image -->
             <div class="w-full lg:w-1/2 mb-12 md:mb-0">
-                <img src="assets/studies.png" alt="Team Meeting" class="w-full h-auto rounded-2xl object-cover" />
+                <img loading="lazy" src="assets/studies.png" alt="Team Meeting" class="w-full h-auto rounded-2xl object-cover" />
             </div>
         </section>
 
@@ -538,7 +538,7 @@
         <section class="container mx-auto md:mb-20 mb-8 px-4 md:px-12 flex flex-col lg:flex-row items-start text-black">
             <!-- Left: Image -->
             <div class="w-full lg:w-1/2">
-                <img src="assets/blogs.png" alt="Team Meeting" class="w-full h-auto rounded-2xl object-cover" />
+                <img loading="lazy" src="assets/blogs.png" alt="Team Meeting" class="w-full h-auto rounded-2xl object-cover" />
             </div>
 
             <!-- Right: Content -->
@@ -566,7 +566,7 @@
                     </div>
                 </div>
 
-                <a href="#"
+                <a href="./pages/blogs.html"
                     class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 text-black rounded-md hover:bg-special-blue/15 shadow-sm transition mt-8">
                     More Blogs
                     <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
@@ -576,7 +576,7 @@
             </div>
         </section>
 
-        <!-- Get In Toch Section -->
+        <!-- Get In Touch Section -->
         <section
             class="container mx-auto space-x-12 mb-20 px-4 md:px-12 flex flex-col lg:flex-row items-start flex-col-reverse text-black">
             <!-- Left: Content -->
@@ -641,7 +641,7 @@
 
             <!-- Right: Image -->
             <div class="w-full lg:w-1/2 mb-12 md:mb-0">
-                <img src="assets/contact.png" alt="contact" class="w-full h-auto rounded-2xl object-cover" />
+                <img loading="lazy" src="assets/contact.png" alt="contact" class="w-full h-auto rounded-2xl object-cover" />
             </div>
         </section>
 
@@ -651,7 +651,7 @@
 
             <!-- Left Image -->
             <div class="md:w-1/2 w-full ">
-                <img src="assets/resources.png" alt="Resources" class="w-full h-auto object-cover" />
+                <img loading="lazy" src="assets/resources.png" alt="Resources" class="w-full h-auto object-cover" />
             </div>
 
             <!-- Right Form -->
@@ -662,7 +662,7 @@
                         webinars, and downloadable resources</h2>
                 </div>
 
-                <a href="#"
+                <a href="./pages/resources.html"
                     class="inline-flex items-center justify-center px-6 py-3 bg-white text-black rounded-md hover:bg-slate-50 shadow-sm transition mt-8">
                     More Resources
                     <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
@@ -749,7 +749,7 @@
                     </div>
                 </div>
 
-                <a href="#"
+                <a href="./pages/news.html"
                     class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 md:bg-white text-black rounded-md hover:bg-special-blue/15 md:hover:bg-slate-50 shadow-sm transition mt-8 md:hidden">
                     View All News
                     <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
@@ -825,7 +825,7 @@
 
             </div>
 
-            <a href="#"
+            <a href="./pages/faqs.html"
                 class="inline-flex items-center justify-center px-6 py-3 bg-special-blue/10 text-black rounded-md hover:bg-special-blue/15 shadow-sm transition">
                 More FAQ's
                 <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
@@ -856,7 +856,7 @@
 
                 <!-- Right Image -->
                 <div class="md:w-1/2 w-full ">
-                    <img src="assets/bottom.png" alt="Resources" class="w-full h-auto object-cover" />
+                    <img loading="lazy" src="assets/bottom.png" alt="Resources" class="w-full h-auto object-cover" />
                 </div>
             </div>
             <div class="w-full md:relative flex justify-center md:items-end">
@@ -889,14 +889,14 @@
             <!-- Center Navigation Links -->
             <div class="flex flex-wrap gap-x-10 gap-y-2 text-xl font-light">
                 <div class="flex flex-col space-y-1">
-                    <a href="#" class="hover:underline">Home</a>
-                    <a href="#" class="hover:underline">About</a>
-                    <a href="#" class="hover:underline">Services</a>
-                    <a href="#" class="hover:underline">Contact</a>
+                    <a href="/" class="hover:underline">Home</a>
+                    <a href="./about.html" class="hover:underline">About</a>
+                    <a href="./services.html" class="hover:underline">Services</a>
+                    <a href="./contact.html" class="hover:underline">Contact</a>
                 </div>
                 <div class="flex flex-col space-y-1">
-                    <a href="#" class="hover:underline">Careers</a>
-                    <a href="#" class="hover:underline">Subscribe</a>
+                    <a href="./careers.html" class="hover:underline">Careers</a>
+                    <a href="./subscribe.html" class="hover:underline">Subscribe</a>
                 </div>
             </div>
 
