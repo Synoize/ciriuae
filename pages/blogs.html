@@ -58,28 +58,154 @@
         <a href="/" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Home</a>
         <a href="./about.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">About</a>
         <a href="./services.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Services</a>
-        <a href="./careers.html"
-            class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Careers</a>
+        <a href="./careers.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Careers</a>
         <a href="./contact.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Contact</a>
-        <a href="./blogs.html" class="px-12 py-3 text-special-blue font-medium hover:bg-slate-100/50 rounded-full w-xs">Blogs</a>
+        <a href="./blogs.html"
+            class="px-12 py-3 text-special-blue font-medium hover:bg-slate-100/50 rounded-full w-xs">Blogs</a>
         <a href="/auth/login.html" class="px-12 py-3 bg-special-blue hover:bg-special-blue/90 rounded-full w-xs">Sign
             In</a>
     </div>
 
-    <!-- Main -->
-    <main>
+    <!-- Floating Share Button Group -->
+    <div class="fixed bottom-8 right-8 z-50">
+        <div class="group flex flex-col items-center space-y-3">
 
+            <!-- Share Icons Wrapper (hidden by default, visible on hover) -->
+            <div
+                class="flex flex-col items-center space-y-3 transition-all duration-300 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+
+                <!-- X (Twitter) -->
+                <a href="https://twitter.com/ciriuae" target="_blank">
+                    <div
+                        class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-x-twitter"></i>
+                    </div>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/971524308085" target="_blank">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-whatsapp text-green-400 text-xl"></i>
+                    </div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/company/ciri-uae" target="_blank">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-linkedin-in text-blue-500 text-xl"></i>
+                    </div>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:inquiry@ciriuae.com">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fas fa-envelope text-red-500 text-lg"></i>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Main Share Button -->
+            <button
+                class="bg-blue-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition">
+                <i class="fas fa-share-alt text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <main class="flex items-center justify-center min-h-[90vh] px-12">
+        <div class="text-center max-w-2xl w-full">
+            <!-- Logo (optional) -->
+            <img src="/assets/logo.jpg" alt="CIRIUAE Logo" class="h-24 mx-auto mb-6" />
+
+            <!-- Heading -->
+            <h1 class="text-4xl font-bold text-sky-500 mb-4">Something Great is Coming Soon</h1>
+            <p class="text-lg text-gray-600 mb-6">We’re working hard to launch a new experience. Stay tuned!</p>
+
+            <!-- Countdown Placeholder -->
+            <div id="countdown" class="flex justify-center gap-6 text-2xl font-semibold text-black mb-8">
+                <div><span id="days">00</span>
+                    <div class="text-sm text-gray-500">Days</div>
+                </div>
+                <div><span id="hours">00</span>
+                    <div class="text-sm text-gray-500">Hours</div>
+                </div>
+                <div><span id="minutes">00</span>
+                    <div class="text-sm text-gray-500">Minutes</div>
+                </div>
+                <div><span id="seconds">00</span>
+                    <div class="text-sm text-gray-500">Seconds</div>
+                </div>
+            </div>
+
+            <!-- Email Notify Form (optional) -->
+            <form class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <input type="email" placeholder="Enter your email"
+                    class="px-4 py-2 rounded-md border w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-sky-300" />
+                <button type="submit" class="px-6 py-2 bg-sky-500 text-white rounded-md hover:bg-sky-600 transition">
+                    Notify Me
+                </button>
+            </form>
+        </div>
+
+        <!-- Countdown Script -->
+        <script>
+            // Set the launch date (yyyy-mm-dd format)
+            const launchDate = new Date("2025-09-01T00:00:00").getTime();
+
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = launchDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").textContent = String(days).padStart(2, '0');
+                document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+                document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+                document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown").innerHTML = "We're Live!";
+                }
+            }, 1000);
+        </script>
     </main>
 
     <!-- Footer -->
-    <footer class="container border-t border-gray-200">
+    <footer class="container mx-auto border-t border-gray-200">
         <div class="w-full p-8 md:p-12 flex flex-col md:flex-row justify-between items-start gap-10 text-gray-800">
 
-            <div class="">
+            <div class="space-y-12">
                 <h2 class="text-2xl font-light leading-snug">
                     CiriUAE the Comprehensive<br />
                     Business Consulting Services
                 </h2>
+                <div class="space-y-3">
+                    <div class="font-medium leading-snug">
+                        <h2> Address: </h2>
+                        <p class="font-light">Free Zone - Ajman - United Arab Emirates</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Phone: </h2>
+                        <p class="font-light">+971582428422</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Email: </h2>
+                        <p class="font-light">INQUIRY@CIRIUAE.COM</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Hours: </h2>
+                        <p class="font-light">Open today <br />
+                            09:00 am – 05:00 pm</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Center Navigation Links -->
@@ -99,11 +225,16 @@
             <div class="space-y-4 text-2xl font-light leading-snug">
                 <h4>Follow Us</h4>
                 <div class="flex gap-6 text-gray-600 text-xl">
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/ciri-uae" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/CiriUAE" target="_blank" aria-label="X / Twitter"><i
+                            class="fab fa-x-twitter"></i></a>
+                    <a href="https://facebook.com/_" target="_blank" aria-label="Facebook"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/_" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/_" target="_blank" aria-label="YouTube"><i
+                            class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>

@@ -65,6 +65,54 @@
         <a href="/auth/login.html" class="px-12 py-3 bg-special-blue hover:bg-special-blue/90 rounded-full w-xs">Sign
             In</a>
     </div>
+    <!-- Floating Share Button Group -->
+    <div class="fixed bottom-8 right-8 z-50">
+        <div class="group flex flex-col items-center space-y-3">
+
+            <!-- Share Icons Wrapper (hidden by default, visible on hover) -->
+            <div
+                class="flex flex-col items-center space-y-3 transition-all duration-300 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+
+                <!-- X (Twitter) -->
+                <a href="https://twitter.com/ciriuae" target="_blank">
+                    <div
+                        class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-x-twitter"></i>
+                    </div>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/971524308085" target="_blank">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-whatsapp text-green-400 text-xl"></i>
+                    </div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/company/ciri-uae" target="_blank">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-linkedin-in text-blue-500 text-xl"></i>
+                    </div>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:inquiry@ciriuae.com">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fas fa-envelope text-red-500 text-lg"></i>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Main Share Button -->
+            <button
+                class="bg-blue-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition">
+                <i class="fas fa-share-alt text-xl"></i>
+            </button>
+        </div>
+    </div>
 
     <!-- Main -->
     <main>
@@ -143,14 +191,33 @@
     </main>
 
     <!-- Footer -->
-    <footer class="container border-t border-gray-200">
+    <footer class="container mx-auto border-t border-gray-200">
         <div class="w-full p-8 md:p-12 flex flex-col md:flex-row justify-between items-start gap-10 text-gray-800">
 
-            <div class="">
+            <div class="space-y-12">
                 <h2 class="text-2xl font-light leading-snug">
                     CiriUAE the Comprehensive<br />
                     Business Consulting Services
                 </h2>
+                <div class="space-y-3">
+                    <div class="font-medium leading-snug">
+                        <h2> Address: </h2>
+                        <p class="font-light">Free Zone - Ajman - United Arab Emirates</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Phone: </h2>
+                        <p class="font-light">+971582428422</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Email: </h2>
+                        <p class="font-light">INQUIRY@CIRIUAE.COM</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Hours: </h2>
+                        <p class="font-light">Open today <br />
+                            09:00 am – 05:00 pm</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Center Navigation Links -->
@@ -167,15 +234,14 @@
                 </div>
             </div>
 
-
             <div class="space-y-4 text-2xl font-light leading-snug">
                 <h4>Follow Us</h4>
                 <div class="flex gap-6 text-gray-600 text-xl">
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/ciri-uae" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/CiriUAE" target="_blank" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://facebook.com/_" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/_" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
