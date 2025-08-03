@@ -37,7 +37,7 @@
         </nav>
 
         <div class="hidden md:flex items-center">
-            <a href="#"
+            <a href="/auth/login.html"
                 class="bg-special-blue/10 text-black px-6 py-2 rounded-md hover:bg-special-blue/15 text-lg underline">
                 Sign In
             </a>
@@ -66,15 +66,15 @@
             In</a>
     </div>
 
-    <!-- Floating Share Button Group -->
-    <div class="fixed bottom-8 right-8 z-50">
-        <div class="group flex flex-col items-center space-y-3">
+   <!-- Floating Share Button Group -->
+    <div class="fixed bottom-8 right-8 z-50" id="share-container">
+        <div class="flex flex-col items-center space-y-3 relative">
 
-            <!-- Share Icons Wrapper (hidden by default, visible on hover) -->
-            <div
-                class="flex flex-col items-center space-y-3 transition-all duration-300 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+            <!-- Share Icons -->
+            <div id="share-icons"
+                class="flex flex-col items-center space-y-3 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
 
-                <!-- X (Twitter) -->
+                <!-- Twitter -->
                 <a href="https://twitter.com/ciriuae" target="_blank">
                     <div
                         class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
@@ -108,12 +108,33 @@
             </div>
 
             <!-- Main Share Button -->
-            <button
-                class="bg-blue-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition">
+            <div id="share-button"
+                class="bg-blue-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition cursor-pointer">
                 <i class="fas fa-share-alt text-xl"></i>
-            </button>
+            </div>
         </div>
     </div>
+    <script>
+        const shareButton = document.getElementById("share-button");
+        const shareIcons = document.getElementById("share-icons");
+        const shareContainer = document.getElementById("share-container");
+
+        let isOpen = false;
+
+        // Show on mouse enter
+        shareContainer.addEventListener("mouseenter", () => {
+            shareIcons.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
+            shareIcons.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+            isOpen = true;
+        });
+
+        // Hide on mouse leave
+        shareContainer.addEventListener("mouseleave", () => {
+            shareIcons.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+            shareIcons.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
+            isOpen = false;
+        });
+    </script>
 
     <!-- Main -->
     <main>

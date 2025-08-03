@@ -37,7 +37,7 @@
         </nav>
 
         <div class="hidden md:flex items-center">
-            <a href="#"
+            <a href="/auth/login.html"
                 class="bg-special-blue/10 text-black px-6 py-2 rounded-md hover:bg-special-blue/15 text-lg underline">
                 Sign In
             </a>
@@ -65,15 +65,16 @@
         <a href="/auth/login.html" class="px-12 py-3 bg-special-blue hover:bg-special-blue/90 rounded-full w-xs">Sign
             In</a>
     </div>
+
     <!-- Floating Share Button Group -->
-    <div class="fixed bottom-8 right-8 z-50">
-        <div class="group flex flex-col items-center space-y-3">
+    <div class="fixed bottom-8 right-8 z-50" id="share-container">
+        <div class="flex flex-col items-center space-y-3 relative">
 
-            <!-- Share Icons Wrapper (hidden by default, visible on hover) -->
-            <div
-                class="flex flex-col items-center space-y-3 transition-all duration-300 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+            <!-- Share Icons -->
+            <div id="share-icons"
+                class="flex flex-col items-center space-y-3 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
 
-                <!-- X (Twitter) -->
+                <!-- Twitter -->
                 <a href="https://twitter.com/ciriuae" target="_blank">
                     <div
                         class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
@@ -107,17 +108,38 @@
             </div>
 
             <!-- Main Share Button -->
-            <button
-                class="bg-blue-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition">
+            <div id="share-button"
+                class="bg-blue-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition cursor-pointer">
                 <i class="fas fa-share-alt text-xl"></i>
-            </button>
+            </div>
         </div>
     </div>
+    <script>
+        const shareButton = document.getElementById("share-button");
+        const shareIcons = document.getElementById("share-icons");
+        const shareContainer = document.getElementById("share-container");
+
+        let isOpen = false;
+
+        // Show on mouse enter
+        shareContainer.addEventListener("mouseenter", () => {
+            shareIcons.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
+            shareIcons.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+            isOpen = true;
+        });
+
+        // Hide on mouse leave
+        shareContainer.addEventListener("mouseleave", () => {
+            shareIcons.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+            shareIcons.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
+            isOpen = false;
+        });
+    </script>
 
     <!-- Main -->
     <main>
         <!-- About Section -->
-        <section class="container mx-auto my-12 px-4 md:px-12 text-center space-y-12 text-black">
+        <section class="container mx-auto mt-12 px-4 md:px-12 text-center space-y-12 text-black">
             <div>
                 <h3 class="text-sm font-bold uppercase tracking-wide">About CIRIUAE</h3>
                 <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light mt-4 px-4 leading-snug">
@@ -218,6 +240,195 @@
                 </div>
 
 
+            </div>
+        </section>
+
+        <!-- What Does CiriUAE Do? -->
+        <section class="container mx-auto mt-20 m-12 px-4 md:px-12 text-center space-y-12 text-black">
+            <div>
+                <h3 class="text-sm font-bold uppercase tracking-wide">What Does CiriUAE Do?</h3>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light mt-4 px-4 leading-snug">
+                    Empowering Growth through Strategy, Innovation & Global Collaboration
+                </h1>
+                <p class="mt-4 max-w-5xl mx-auto leading-snug font-light md:text-xl">
+                    CiriUAE is a management consulting firm delivering high-impact, sector-specific solutions for
+                    governments, enterprises, and global brands. Positioned as a catalyst for innovation and expansion,
+                    CiriUAE operates across multiple verticals with a strong emphasis on strategic execution, market
+                    expansion, and global distribution enablement.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-sm font-bold uppercase tracking-wide my-12">Core Offerings & Capabilities:</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div
+                        class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                        <div class="flex flex-col items-start px-8 mt-4 mb-8 space-y-4">
+                            <h4 class="text-2xl">Sector-Specific Business Solutions</h4>
+                            <ul class="space-y-4 font-light">
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden="true"></i>
+                                    Custom market entry & growth strategies for Beauty, FMCG, Retail, Wellness,
+                                    Technology, and Real Estate
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    End-to-end business formation, regulatory structuring, legal & financial
+                                    documentation
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                        <div class="flex flex-col items-start px-8 mt-4 mb-8 space-y-4">
+                            <h4 class="text-2xl">Government Collaboration</h4>
+                            <ul class="space-y-4 font-light">
+                                <li class="flex items-center gap-3 text-start">
+                                    Co-developing national-scale innovative projects in:
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Affordable Housing
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Smart Infrastructure
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Digital Education Platforms
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Clean Tech & Emerging Technologies
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Public-private partnership models for long-term impact
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                        <div class="flex flex-col items-start px-8 mt-4 mb-8 space-y-4">
+                            <h4 class="text-2xl">Global Distribution & Expansion Network</h4>
+                            <ul class="space-y-4 font-light">
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden="true"></i>
+                                    Access to a growing international network of manufacturers, distributors, and
+                                    retailers
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Geo-targeted product penetration strategies across GCC, India, and Asia
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Integration via CiriPortal, a B2B platform enabling real-time market connection
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                        <div class="flex flex-col items-start px-8 mt-4 mb-8 space-y-4">
+                            <h4 class="text-2xl">Investment Bridging & Strategic Consulting</h4>
+                            <ul class="space-y-4 font-light">
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden="true"></i>
+                                    Facilitates investor engagement for brand expansion and JV partnerships
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Structured investment models, equity partnership frameworks, and financial
+                                    projections
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Exclusive advisory for business localization and operational execution
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light mt-4 px-4 leading-snug">
+                    Strategic Positioning
+                </h1>
+                <p class="mt-4 max-w-3xl mx-auto leading-snug font-light md:text-xl">
+                    CiriUAE is not just a consultant—it is an execution enabler with international reach, government
+                    linkage, and sectoral influence. By integrating market intelligence, regulatory know-how, and
+                    on-ground networks, CiriUAE transforms ideas into impact.
+                </p>
+
+                <div class="flex justify-center flex-wrap gap-4 mt-12">
+                    <div
+                        class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                        <div class="flex flex-col items-start px-8 mt-4 mb-8 space-y-4">
+                            <h4 class="text-2xl">CiriUAE: Worth Estimation in the Next 3 Months Based on:</h4>
+                            <ul class="space-y-4 font-light">
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden="true"></i>
+                                    Ongoing project proposals with brand partners, valued between $1.0 M–$2.5 M
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Live negotiations with investors for beauty, real estate, and retail verticals
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Two government collaboration projects in infra & smart schools pipeline
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    3 signed MOUs for international brand entry under execution
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                        <div class="flex flex-col items-start px-8 mt-4 mb-8 space-y-4">
+                            <h4 class="text-2xl">Estimated Valuation (Projected - 3 Months):</h4>
+                            <ul class="space-y-4 font-light">
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden="true"></i>
+                                    Valuation Component Est. Value (USD)
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Consulting Contracts (signed/pipeline) $1.5M – $2M
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Execution & Licensing Rights (JV models) $3M – $5M
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Government Collaboration Equity Potential $5M – $8M
+                                </li>
+                                <li class="flex items-center gap-3 text-start">
+                                    <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                    Investor Mandate Closures & Success Fees $2M – $3.5M
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-l-4 border-special-blue rounded-t p-6 mt-12 w-full md:max-w-3xl mx-auto">
+                    <h4 class="text-2xl">Total Projected Worth by Q4 2025: ~$12.5M to $18.5M</h2>
+                        <p >(based on cumulative project values, consulting revenue, IP & execution rights)</p>
+                </div>
             </div>
         </section>
     </main>

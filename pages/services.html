@@ -37,7 +37,7 @@
         </nav>
 
         <div class="hidden md:flex items-center">
-            <a href="#"
+            <a href="/auth/login.html"
                 class="bg-special-blue/10 text-black px-6 py-2 rounded-md hover:bg-special-blue/15 text-lg underline">
                 Sign In
             </a>
@@ -57,23 +57,24 @@
         class="sm:hidden hidden fixed top-[72px] w-full h-[90vh] z-40 bg-white/80 p-8 border-b border-gray-200 animate-fade-in-down flex flex-col gap-4 items-center text-center  font-light backdrop-blur-sm">
         <a href="/" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Home</a>
         <a href="./about.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">About</a>
-        <a href="./services.html" class="px-12 py-3 text-special-blue font-medium hover:bg-slate-100/50 rounded-full w-xs">Services</a>
-        <a href="./careers.html"
-            class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Careers</a>
+        <a href="./services.html"
+            class="px-12 py-3 text-special-blue font-medium hover:bg-slate-100/50 rounded-full w-xs">Services</a>
+        <a href="./careers.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Careers</a>
         <a href="./contact.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Contact</a>
         <a href="./blogs.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Blogs</a>
         <a href="/auth/login.html" class="px-12 py-3 bg-special-blue hover:bg-special-blue/90 rounded-full w-xs">Sign
             In</a>
     </div>
-<!-- Floating Share Button Group -->
-    <div class="fixed bottom-8 right-8 z-50">
-        <div class="group flex flex-col items-center space-y-3">
 
-            <!-- Share Icons Wrapper (hidden by default, visible on hover) -->
-            <div
-                class="flex flex-col items-center space-y-3 transition-all duration-300 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+    <!-- Floating Share Button Group -->
+    <div class="fixed bottom-8 right-8 z-50" id="share-container">
+        <div class="flex flex-col items-center space-y-3 relative">
 
-                <!-- X (Twitter) -->
+            <!-- Share Icons -->
+            <div id="share-icons"
+                class="flex flex-col items-center space-y-3 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
+
+                <!-- Twitter -->
                 <a href="https://twitter.com/ciriuae" target="_blank">
                     <div
                         class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
@@ -107,13 +108,34 @@
             </div>
 
             <!-- Main Share Button -->
-            <button
-                class="bg-blue-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition">
+            <div id="share-button"
+                class="bg-blue-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition cursor-pointer">
                 <i class="fas fa-share-alt text-xl"></i>
-            </button>
+            </div>
         </div>
     </div>
-    
+    <script>
+        const shareButton = document.getElementById("share-button");
+        const shareIcons = document.getElementById("share-icons");
+        const shareContainer = document.getElementById("share-container");
+
+        let isOpen = false;
+
+        // Show on mouse enter
+        shareContainer.addEventListener("mouseenter", () => {
+            shareIcons.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
+            shareIcons.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+            isOpen = true;
+        });
+
+        // Hide on mouse leave
+        shareContainer.addEventListener("mouseleave", () => {
+            shareIcons.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+            shareIcons.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
+            isOpen = false;
+        });
+    </script>
+
     <!-- Main -->
     <main>
         <!-- Services Section -->
@@ -175,6 +197,133 @@
                     </div>
                 </div>
 
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/services/Project_Management.png" alt="Business Dev"
+                        class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Project Management</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            We deliver effective project planning, coordination, and execution services. Whether
+                            launching a new product, entering a market, or restructuring operations, CiriUAE ensures
+                            projects are delivered on time, within budget, and aligned with strategic goals.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/services/Product_Marketing_Plans.png" alt="Business Dev"
+                        class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Product Marketing Plans</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            We design and implement actionable product marketing strategies to drive demand,
+                            differentiate your offerings, and maximize market share. Services include product
+                            positioning, pricing models, promotional campaigns, and lifecycle management.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/services/Business_Management_Solutions.png" alt="Business Dev"
+                        class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Business Management Solutions</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            CiriUAE offers comprehensive business management solutions to improve organizational
+                            performance, operational efficiency, and leadership effectiveness. We focus on strategic
+                            alignment, process optimization, resource planning, and performance tracking.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/services/Development_of_Distribution_Network.png"
+                        alt="Business Dev" class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Development of Distribution Network</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            We help businesses establish, expand, and optimize distribution networks in target markets.
+                            Our approach includes partner identification, territory planning, supply chain strategy, and
+                            distributor engagement models tailored to each region's dynamics.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/services/Distribution_Network_Road_Map.png" alt="Business Dev"
+                        class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Distribution Network Road Map</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            CiriUAE builds strategic road maps for distribution expansion, covering geographic
+                            segmentation, logistics planning, channel development, digital integration, and long-term
+                            scalability frameworks.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/services/Problem_Solving_with_Existing_Systems.png"
+                        alt="Business Dev" class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Problem Solving with Existing Systems</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            We provide diagnostic evaluations and solutions for businesses facing challenges in their
+                            current systems. Our consultants assess operational bottlenecks, inefficiencies, or outdated
+                            processes and deliver practical, tech-enabled recommendations for improvement.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/services/Strategic_Partnerships_Planning.png"
+                        alt="Business Dev" class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Strategic Partnerships Planning</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            CiriUAE identifies and facilitates strategic partnerships that enhance capability, reach,
+                            and competitiveness. We develop partnership frameworks, negotiation strategies, and
+                            collaboration models that align with business goals and mutual benefit.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/services/Collaboration_Solutions.png"
+                        alt="Business Dev" class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Collaboration Solutions</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            We design structured collaboration models for cross-border ventures, joint initiatives, or
+                            internal cross-functional teams. Our focus is on fostering synergy, transparency, and mutual
+                            accountability through digital tools and effective communication channels.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/services/Financial_Modeling_for_New_Business.png"
+                        alt="Business Dev" class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Financial Modeling for New Business</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            Our financial experts build robust financial models to evaluate the viability,
+                            profitability, and risk factors of new business ideas. This includes revenue forecasting,
+                            cost analysis, ROI projections, cash flow planning, and investor-ready financial
+                            presentations.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>
@@ -226,11 +375,16 @@
             <div class="space-y-4 text-2xl font-light leading-snug">
                 <h4>Follow Us</h4>
                 <div class="flex gap-6 text-gray-600 text-xl">
-                    <a href="https://www.linkedin.com/company/ciri-uae" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://x.com/CiriUAE" target="_blank" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
-                    <a href="https://facebook.com/_" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://instagram.com/_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://youtube.com/_" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/ciri-uae" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/CiriUAE" target="_blank" aria-label="X / Twitter"><i
+                            class="fab fa-x-twitter"></i></a>
+                    <a href="https://facebook.com/_" target="_blank" aria-label="Facebook"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/_" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/_" target="_blank" aria-label="YouTube"><i
+                            class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>

@@ -37,7 +37,7 @@
         </nav>
 
         <div class="hidden md:flex items-center">
-            <a href="#"
+            <a href="/auth/login.html"
                 class="bg-special-blue/10 text-black px-6 py-2 rounded-md hover:bg-special-blue/15 text-lg underline">
                 Sign In
             </a>
@@ -64,15 +64,16 @@
         <a href="/auth/login.html" class="px-12 py-3 bg-special-blue hover:bg-special-blue/90 rounded-full w-xs">Sign
             In</a>
     </div>
-<!-- Floating Share Button Group -->
-    <div class="fixed bottom-8 right-8 z-50">
-        <div class="group flex flex-col items-center space-y-3">
 
-            <!-- Share Icons Wrapper (hidden by default, visible on hover) -->
-            <div
-                class="flex flex-col items-center space-y-3 transition-all duration-300 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+    <!-- Floating Share Button Group -->
+    <div class="fixed bottom-8 right-8 z-50" id="share-container">
+        <div class="flex flex-col items-center space-y-3 relative">
 
-                <!-- X (Twitter) -->
+            <!-- Share Icons -->
+            <div id="share-icons"
+                class="flex flex-col items-center space-y-3 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
+
+                <!-- Twitter -->
                 <a href="https://twitter.com/ciriuae" target="_blank">
                     <div
                         class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
@@ -106,13 +107,34 @@
             </div>
 
             <!-- Main Share Button -->
-            <button
-                class="bg-blue-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition">
+            <div id="share-button"
+                class="bg-blue-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition cursor-pointer">
                 <i class="fas fa-share-alt text-xl"></i>
-            </button>
+            </div>
         </div>
     </div>
-    
+    <script>
+        const shareButton = document.getElementById("share-button");
+        const shareIcons = document.getElementById("share-icons");
+        const shareContainer = document.getElementById("share-container");
+
+        let isOpen = false;
+
+        // Show on mouse enter
+        shareContainer.addEventListener("mouseenter", () => {
+            shareIcons.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
+            shareIcons.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+            isOpen = true;
+        });
+
+        // Hide on mouse leave
+        shareContainer.addEventListener("mouseleave", () => {
+            shareIcons.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+            shareIcons.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
+            isOpen = false;
+        });
+    </script>
+
     <!-- Main -->
     <main>
         <!-- Industries We Serve Section -->
@@ -253,6 +275,126 @@
                     </div>
                 </div>
 
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/industries/manufacturing.png" alt="technology"
+                        class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Manufacturing</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            The manufacturing industry is embracing Industry 4.0—from automation to smart factories. We
+                            help companies modernize and stay competitive.
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-start px-8 mb-8 space-y-4">
+                        <h4 class="text-2xl">We help you:</h4>
+                        <ul class="space-y-4 font-light">
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden="true"></i>
+                                Automate production and inventory systems
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Implement smart factory and IoT solutions
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Reduce operational costs with data-driven decisions
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Optimize supply chains and resource planning
+                            </li>
+                        </ul>
+                        <div class="p-4 border-l-4 border-special-blue rounded-sm bg-white/50 mt-4">
+                            <p class="text-start">
+                                <span class="text-special-blue font-bold">Outcome: </span>
+                                Enhanced productivity, reduced waste, and end-to-end digital visibility.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/industries/retail.png" alt="technology"
+                        class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Retail</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            The retail landscape is changing rapidly with omni channel trends and evolving customer
+                            behavior. We support both physical and digital retail success.
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-start px-8 mb-8 space-y-4">
+                        <h4 class="text-2xl">We help you:</h4>
+                        <ul class="space-y-4 font-light">
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden="true"></i>
+                                Build seamless e-commerce platforms
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Enhance CRM and personalized marketing
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Manage inventory and logistics efficiently
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Leverage analytics for customer insights
+                            </li>
+                        </ul>
+                        <div class="p-4 border-l-4 border-special-blue rounded-sm bg-white/50 mt-4">
+                            <p class="text-start">
+                                <span class="text-special-blue font-bold">Outcome: </span>
+                                Higher sales, better customer experiences, and improved operational control.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+                    <img loading="lazy" src="/assets/industries/energy.png" alt="technology"
+                        class="w-full h-58 object-cover" />
+                    <div class="p-8">
+                        <h4 class="text-2xl">Energy</h4>
+                        <p class="font-light md:text-lg mt-2">
+                            With the global focus on clean and efficient energy, companies need smart, sustainable
+                            solutions.
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-start px-8 mb-8 space-y-4">
+                        <h4 class="text-2xl">We help you:</h4>
+                        <ul class="space-y-4 font-light">
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden="true"></i>
+                                Digitize operations and grid management
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Integrate renewable energy data and tools
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Monitor and optimize asset performance
+                            </li>
+                            <li class="flex items-center gap-3 text-start">
+                                <i class="fa fa-check text-special-blue" aria-hidden=" true"></i>
+                                Navigate ESG and regulatory reporting
+                            </li>
+                        </ul>
+                        <div class="p-4 border-l-4 border-special-blue rounded-sm bg-white/50 mt-4">
+                            <p class="text-start">
+                                <span class="text-special-blue font-bold">Outcome: </span>
+                                Future-proofed operations with a focus on sustainability, compliance, and efficiency.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </section>
@@ -305,11 +447,16 @@
             <div class="space-y-4 text-2xl font-light leading-snug">
                 <h4>Follow Us</h4>
                 <div class="flex gap-6 text-gray-600 text-xl">
-                    <a href="https://www.linkedin.com/company/ciri-uae" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://x.com/CiriUAE" target="_blank" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
-                    <a href="https://facebook.com/_" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://instagram.com/_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://youtube.com/_" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/ciri-uae" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/CiriUAE" target="_blank" aria-label="X / Twitter"><i
+                            class="fab fa-x-twitter"></i></a>
+                    <a href="https://facebook.com/_" target="_blank" aria-label="Facebook"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/_" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/_" target="_blank" aria-label="YouTube"><i
+                            class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
