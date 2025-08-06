@@ -1,65 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coming Soon - CIRIUAE</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/assets/logo.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+            --color-special-blue: #0CA0E4;
+            --color-special-green: #DCF9E3;
+        }
+    </style>
+  <title>Resources - CiriUAE</title>
 </head>
-<body class="bg-white text-gray-800 flex items-center justify-center min-h-screen px-4">
 
-  <div class="text-center max-w-2xl w-full">
-    <!-- Logo (optional) -->
-    <img src="/assets/logo.jpg" alt="CIRIUAE Logo" class="h-24 mx-auto mb-6" />
+<body class="bg-white">
+  <!-- Header -->
+  <header
+    class="container mx-auto px-6 sm:px-12 py-4 flex items-center justify-between border-b border-gray-200 relative z-50">
+    <!-- Logo -->
+    <a href="/" class="flex items-center space-x-2">
+      <img src="/assets/logo.jpg" alt="CIRIUAE Logo" class="h-12 w-auto" />
+    </a>
 
-    <!-- Heading -->
-    <h1 class="text-4xl font-bold text-sky-500 mb-4">Something Great is Coming Soon</h1>
-    <p class="text-lg text-gray-600 mb-6">We’re working hard to launch a new experience. Stay tuned!</p>
+    <!-- Desktop Navigation -->
+    <nav class="hidden sm:flex items-center space-x-6 text-black">
+      <a href="/" class="hover:text-special-blue">Home</a>
+      <a href="./about.html" class="hover:text-special-blue">About</a>
+      <a href="./services.html" class="hover:text-special-blue">Services</a>
+      <a href="./careers.html" class="hover:text-special-blue">Careers</a>
+      <a href="./blogs.html" class="hover:text-special-blue">Blogs</a>
+      <a href="./contact.html" class="hover:text-special-blue">Contact</a>
+    </nav>
 
-    <!-- Countdown Placeholder -->
-    <div id="countdown" class="flex justify-center gap-6 text-2xl font-semibold text-black mb-8">
-      <div><span id="days">00</span><div class="text-sm text-gray-500">Days</div></div>
-      <div><span id="hours">00</span><div class="text-sm text-gray-500">Hours</div></div>
-      <div><span id="minutes">00</span><div class="text-sm text-gray-500">Minutes</div></div>
-      <div><span id="seconds">00</span><div class="text-sm text-gray-500">Seconds</div></div>
+    <div class="hidden md:flex items-center transform transition-transform duration-300 ease-in-out hover:scale-105">
+      <a href="/auth/login.html"
+        class="bg-special-blue/10 text-black px-6 py-2 rounded-md hover:bg-special-blue/15 text-lg underline">
+        Sign In
+      </a>
     </div>
 
-    <!-- Email Notify Form (optional) -->
-    <form class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <input type="email" placeholder="Enter your email"
-             class="px-4 py-2 rounded-md border w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-sky-300"/>
-      <button type="submit"
-              class="px-6 py-2 bg-sky-500 text-white rounded-md hover:bg-sky-600 transition">
-        Notify Me
-      </button>
-    </form>
+    <!-- Mobile Menu Toggle Button -->
+    <button id="menu-toggle"
+      class="sm:hidden group flex flex-col justify-between w-6 h-6 focus:outline-none z-50 cursor-pointer"
+      aria-label="Toggle menu" aria-expanded="false">
+      <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300 origin-top-left "></span>
+      <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300"></span>
+      <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300 origin-bottom-left"></span>
+    </button>
+  </header>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+    class="sm:hidden hidden fixed top-[72px] w-full h-[90vh] z-40 bg-white/80 p-8 border-b border-gray-200 animate-fade-in-down flex flex-col gap-4 items-center text-center  font-light backdrop-blur-sm">
+    <a href="/" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Home</a>
+    <a href="./about.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">About</a>
+    <a href="./services.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Services</a>
+    <a href="./careers.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Careers</a>
+    <a href="./contact.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Contact</a>
+    <a href="./blogs.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Blogs</a>
+    <a href="/auth/login.html" class="px-12 py-3 bg-special-blue hover:bg-special-blue/90 rounded-full w-xs">Sign
+      In</a>
   </div>
 
-  <!-- Countdown Script -->
+  <!-- Floating Share Button Group -->
+  <div class="fixed bottom-8 right-8 z-30" id="share-container">
+    <div class="flex flex-col items-center space-y-3 relative">
+
+      <!-- Share Icons -->
+      <div id="share-icons"
+        class="flex flex-col items-center space-y-3 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
+
+        <!-- Twitter -->
+        <a href="https://twitter.com/ciriuae" target="_blank">
+          <div
+            class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+            <i class="fab fa-x-twitter"></i>
+          </div>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/971524308085" target="_blank">
+          <div class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+            <i class="fab fa-whatsapp text-green-400 text-xl"></i>
+          </div>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/company/ciri-uae" target="_blank">
+          <div class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+            <i class="fab fa-linkedin-in text-blue-500 text-xl"></i>
+          </div>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:inquiry@ciriuae.com">
+          <div class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+            <i class="fas fa-envelope text-red-500 text-lg"></i>
+          </div>
+        </a>
+      </div>
+
+      <!-- Main Share Button -->
+      <div id="share-button"
+        class="bg-blue-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition cursor-pointer">
+        <i class="fas fa-share-alt text-xl"></i>
+      </div>
+    </div>
+  </div>
   <script>
-    // Set the launch date (yyyy-mm-dd format)
-    const launchDate = new Date("2025-09-01T00:00:00").getTime();
+    const shareButton = document.getElementById("share-button");
+    const shareIcons = document.getElementById("share-icons");
+    const shareContainer = document.getElementById("share-container");
 
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = launchDate - now;
+    let isOpen = false;
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    // Show on mouse enter
+    shareContainer.addEventListener("mouseenter", () => {
+      shareIcons.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
+      shareIcons.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+      isOpen = true;
+    });
 
-      document.getElementById("days").textContent = String(days).padStart(2, '0');
-      document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-      document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-      document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
-
-      if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById("countdown").innerHTML = "We're Live!";
-      }
-    }, 1000);
+    // Hide on mouse leave
+    shareContainer.addEventListener("mouseleave", () => {
+      shareIcons.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+      shareIcons.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
+      isOpen = false;
+    });
   </script>
 
+  <!-- Main -->
+  <main>
+    <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-black">
+      <div>
+        <div class="group ">
+          <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light px-4 leading-snug">
+            Welcome to the CiriUAE Resources Hub
+          </h1>
+          <hr
+            class="h-1.5 w-20 md:w-36 mx-auto mt-2 bg-special-blue border-none rounded-full transform transition-transform duration-300 ease-in-out group-hover:scale-110 ">
+        </div>
+        <p class="mt-8 max-w-4xl mx-auto leading-snug font-light md:text-xl">
+          Your go-to library for expert insights, practical tools, and valuable content designed to support your
+          business growth and innovation journey. Whether you're a startup founder, business leader, marketer, or
+          strategist, our resource library offers the knowledge you need to make informed decisions and stay ahead in a
+          rapidly changing business landscape.
+        </p>
+        <p class="mt-8 max-w-4xl mx-auto leading-snug font-light md:text-xl">
+          We believe that knowledge is power — and the right resources can transform your strategies, operations, and
+          outcomes. That's why we've curated a comprehensive collection of downloadable content, all developed by our
+          in-house experts and industry partners.
+        </p>
+      </div>
+    </section>
+
+    <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-black">
+      <div class="group ">
+        <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light mt-4 px-4 leading-snug">
+          Our Resource Library Includes:
+        </h1>
+        <hr
+          class="h-1.5 w-20 md:w-36 mx-auto mt-2 bg-special-blue border-none rounded-full transform transition-transform duration-300 ease-in-out group-hover:scale-110 ">
+      </div>
+      <!-- Resource Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
+
+        <div
+          class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+          <img loading="lazy" src="/assets/resources/whitepapers.png" alt="Marketing"
+            class="w-full h-58 object-cover" />
+          <div class="p-8">
+            <h4 class="text-2xl">Whitepapers</h4>
+            <p class="font-light md:text-lg mt-2">
+              In-depth reports and industry insights on emerging trends, challenges, and innovations. These are ideal
+              for leaders looking to understand market shifts and plan strategically.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+          <img loading="lazy" src="/assets/resources/e-book.png" alt="Marketing" class="w-full h-58 object-cover" />
+          <div class="p-8">
+            <h4 class="text-2xl">E-books</h4>
+            <p class="font-light md:text-lg mt-2">
+              Practical, easy-to-digest guides packed with actionable tips, step-by-step strategies, and expert advice
+              across business development, marketing, operations, and more.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+          <img loading="lazy" src="/assets/resources/webinars_n_workshops.png" alt="Marketing"
+            class="w-full h-58 object-cover" />
+          <div class="p-8">
+            <h4 class="text-2xl">Webinars & Workshops</h4>
+            <p class="font-light md:text-lg mt-2">
+              Access recordings of our live sessions featuring CiriUAE experts and industry thought leaders. Learn from
+              real-world experiences, client case studies, and Q&A discussions.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+          <img loading="lazy" src="/assets/resources/templates_n_checklists.png" alt="Marketing"
+            class="w-full h-58 object-cover" />
+          <div class="p-8">
+            <h4 class="text-2xl">Templates & Checklists</h4>
+            <p class="font-light md:text-lg mt-2">
+              Ready-to-use tools for marketing planning, financial modeling, strategy execution, and productivity —
+              designed to simplify your workflows and improve efficiency.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="bg-special-blue/10 overflow-hidden hover:shadow transition border-t-4 border-special-blue rounded-t">
+          <img loading="lazy" src="/assets/resources/case_studies.png" alt="Marketing"
+            class="w-full h-58 object-cover" />
+          <div class="p-8">
+            <h4 class="text-2xl">Case Studies</h4>
+            <p class="font-light md:text-lg mt-2">
+              Discover how businesses like yours achieved success using our proven methods. Learn from detailed examples
+              covering different industries, challenges, and outcomes.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Resource Section -->
+    <section class="container mx-auto md:mb-20 mb-8 px-4 md:px-12 flex flex-col lg:flex-row items-start text-black">
+
+      <!-- Left: Image -->
+      <div class="w-full lg:w-1/2">
+        <img loading="lazy" src="/assets/resources.png" alt="Team Meeting"
+          class="w-full h-auto rounded-2xl object-cover" />
+      </div>
+
+      <!-- Right: Content -->
+      <div class="w-full lg:w-1/2 space-y-4 px-4 py-4 md:px-12">
+        <h2 class="text-2xl md:text-5xl font-light leading-snug">
+          Why Use Our Resources?
+        </h2>
+        <p class="font-light md:text-xl">
+          All our resources are designed with practical application in mind — not just theory. Whether you're preparing
+          for an investor pitch, scaling your marketing efforts, or exploring a new market, you'll find tools and
+          guidance to help you move forward with clarity and confidence.
+        </p>
+
+        <div class="mt-12">
+          <ul class="space-y-4 md:text-xl font-light">
+            <li class="flex items-center gap-3 text-start">
+              <i class="fa fa-check text-gray-600" aria-hidden="true"></i>
+              Stay updated on current industry trends and best practices
+            </li>
+            <li class="flex items-center gap-3 text-start">
+              <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+              Get expert insights without the fluff — straight to the point
+            </li>
+            <li class="flex items-center gap-3 text-start">
+              <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+              Save time with pre-built templates and frameworks
+            </li>
+            <li class="flex items-center gap-3 text-start">
+              <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+              Learn from real-world business scenarios
+            </li>
+            <li class="flex items-center gap-3 text-start">
+              <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+              Equip your team with tools to perform better and faster
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="container mx-auto py-20 px-4 md:px-12 text-center text-white bg-special-blue">
+      <div>
+        <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light px-4 leading-snug">
+          Explore. Learn. Grow.
+        </h1>
+        <p class="mt-8 max-w-4xl mx-auto leading-snug font-light md:text-xl">
+          Browse through our categories or use filters to find exactly what you need. All resources are free to access or download — simply register or log in to your CiriUAE account for instant access.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="container mx-auto border-t border-gray-200">
+        <div class="w-full p-8 md:p-12 flex flex-col md:flex-row justify-between items-start gap-10 text-gray-800">
+
+            <div class="space-y-12">
+                <h2 class="text-2xl font-light leading-snug">
+                    CiriUAE the Comprehensive<br />
+                    Business Consulting Services
+                </h2>
+                <div class="space-y-3">
+                    <div class="font-medium leading-snug">
+                        <h2> Address: </h2>
+                        <p class="font-light">Free Zone - Ajman - United Arab Emirates</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Phone: </h2>
+                        <p class="font-light">+971582428422</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Email: </h2>
+                        <p class="font-light">INQUIRY@CIRIUAE.COM</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Hours: </h2>
+                        <p class="font-light">Open today <br />
+                            09:00 am – 05:00 pm</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Navigation Links -->
+            <div class="flex flex-wrap gap-x-10 gap-y-2 text-xl font-light">
+                <div class="flex flex-col space-y-1">
+                    <a href="/" class="hover:underline">Home</a>
+                    <a href="./about.html" class="hover:underline">About</a>
+                    <a href="./services.html" class="hover:underline">Services</a>
+                    <a href="./contact.html" class="hover:underline">Contact</a>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <a href="./careers.html" class="hover:underline">Careers</a>
+                    <a href="./subscribe.html" class="hover:underline">Subscribe</a>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-2xl font-light leading-snug">
+                <h4>Follow Us</h4>
+                <div class="flex gap-6 text-gray-600 text-xl">
+                    <a href="https://www.linkedin.com/company/ciri-uae" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://x.com/CiriUAE" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="X / Twitter">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://facebook.com/_" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://instagram.com/_" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/_" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-100 py-6 text-center text-sm text-gray-500">
+            <p>Copyright © 2025 CiriUAE – All Rights Reserved.</p>
+            <p>Powered by <span class="font-medium text-gray-700">NextPhase</span></p>
+        </div>
+    </footer>
+
+  <script src="/script.js"></script>
 </body>
+
 </html>

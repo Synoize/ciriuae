@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 - Page Not Found</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-special-blue: #0CA0E4;
+            --color-special-green: #DCF9E3;
+        }
+    </style>
+    <title>404 - Page Not Found</title>
 </head>
 <body class="bg-white flex items-center justify-center min-h-screen px-4">
 
   <div class="text-center max-w-xl mx-auto">
-    <!-- Logo (Optional) -->
-    <img src="/assets/logo.jpg" alt="CIRIUAE Logo" class="h-24 mx-auto mb-6" />
-
     <!-- 404 Code -->
-    <h1 class="text-7xl font-bold text-sky-500">404</h1>
+    <h1 class="text-7xl font-bold text-special-blue">404</h1>
 
     <!-- Error Message -->
     <h2 class="text-2xl md:text-3xl font-semibold mt-4">Oops! Page not found.</h2>
@@ -23,7 +29,7 @@
 
     <!-- Button -->
     <a href="/"
-      class="mt-6 inline-block bg-sky-100 text-black font-medium px-6 py-3 rounded-full hover:bg-sky-200 transition">
+      class="mt-6 inline-block bg-special-blue/20 text-black font-medium px-6 py-3 rounded-full hover:bg-special-blue/30 transition">
       Go to Home
     </a>
   </div>

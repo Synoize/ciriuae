@@ -36,7 +36,7 @@
             <a href="./contact.html" class="hover:text-special-blue">Contact</a>
         </nav>
 
-        <div class="hidden md:flex items-center">
+        <div class="hidden md:flex items-center transform transition-transform duration-300 ease-in-out hover:scale-105">
             <a href="/auth/login.html"
                 class="bg-special-blue/10 text-black px-6 py-2 rounded-md hover:bg-special-blue/15 text-lg underline">
                 Sign In
@@ -66,7 +66,7 @@
             In</a>
     </div>
 
-   <!-- Floating Share Button Group -->
+    <!-- Floating Share Button Group -->
     <div class="fixed bottom-8 right-8 z-30" id="share-container">
         <div class="flex flex-col items-center space-y-3 relative">
 
@@ -137,66 +137,95 @@
     </script>
 
     <!-- Main -->
-    <main class="flex items-center justify-center min-h-[90vh] px-12">
-        <div class="text-center max-w-2xl w-full">
-            <!-- Logo (optional) -->
-            <img src="/assets/logo.jpg" alt="CIRIUAE Logo" class="h-24 mx-auto mb-6" />
+    <main>
+        <section class="container mx-auto my-12 px-4 md:px-12 text-center space-y-12 text-black">
+            <div>
+                <h3 class="text-sm font-bold uppercase tracking-wide">Blogs</h3>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light mt-4 px-4 leading-snug">
+                    Insights, news, and thought leadership articles on
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto leading-snug font-light md:text-xl">
+                    management consulting and industry trends. Stay updated with the latest business strategies, market
+                    insights, and expert opinions from our team of seasoned consultants.
+                </p>
+            </div>
+        </section>
 
-            <!-- Heading -->
-            <h1 class="text-4xl font-bold text-sky-500 mb-4">Something Great is Coming Soon</h1>
-            <p class="text-lg text-gray-600 mb-6">We’re working hard to launch a new experience. Stay tuned!</p>
-
-            <!-- Countdown Placeholder -->
-            <div id="countdown" class="flex justify-center gap-6 text-2xl font-semibold text-black mb-8">
-                <div><span id="days">00</span>
-                    <div class="text-sm text-gray-500">Days</div>
+        <!-- Blogs -->
+        <h1 class="text-2xl md:text-3xl w-full text-center font-light mt-4 px-4 leading-snug">
+            Explore Blogs
+        </h1>
+        <section class="container mx-auto my-12 px-4 md:px-12 flex flex-col-reverse lg:flex-row items-start text-black">
+            <!-- Left: Content -->
+            <div class="w-full lg:w-1/2 space-y-4 px-4 py-12 md:px-12">
+                <div class="flex p-4 border-l-4 border-special-blue bg-slate-50 rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-102 ">
+                    <div class="flex-1">
+                        <h2>Latest Article: Digital Transformation in 2025</h2>
+                        <p class="text-start font-light mt-2">
+                            Exploring the key trends shaping digital transformation...
+                        </p>
+                    </div>
+                    <a href="/blogs/blog1.html"
+                        class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                        <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                    </a>
                 </div>
-                <div><span id="hours">00</span>
-                    <div class="text-sm text-gray-500">Hours</div>
+                <div class="flex p-4 border-l-4 border-special-blue bg-slate-50 rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-102 ">
+                    <div class="flex-1">
+                        <h2>Market Analysis: UAE Business Landscape</h2>
+                        <p class="text-start font-light mt-2">
+                            Comprehensive analysis of emerging opportunities...
+                        </p>
+                    </div>
+                    <a href="/blogs/blog1.html"
+                        class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                        <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                    </a>
                 </div>
-                <div><span id="minutes">00</span>
-                    <div class="text-sm text-gray-500">Minutes</div>
+                <div class="flex p-4 border-l-4 border-special-blue bg-slate-50 rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-102 ">
+                    <div class="flex-1">
+                        <h2>Market Analysis: UAE Business Landscape</h2>
+                        <p class="text-start font-light mt-2">
+                            Comprehensive analysis of emerging opportunities...
+                        </p>
+                    </div>
+                    <a href="/blogs/blog1.html"
+                        class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                        <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                    </a>
                 </div>
-                <div><span id="seconds">00</span>
-                    <div class="text-sm text-gray-500">Seconds</div>
+                <div class="flex p-4 border-l-4 border-special-blue bg-slate-50 rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-102 ">
+                    <div class="flex-1">
+                        <h2>Market Analysis: UAE Business Landscape</h2>
+                        <p class="text-start font-light mt-2">
+                            Comprehensive analysis of emerging opportunities...
+                        </p>
+                    </div>
+                    <a href="/blogs/blog1.html"
+                        class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                        <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="flex p-4 border-l-4 border-special-blue bg-slate-50 rounded-sm transform transition-transform duration-300 ease-in-out hover:scale-102 ">
+                    <div class="flex-1">
+                        <h2>Market Analysis: UAE Business Landscape</h2>
+                        <p class="text-start font-light mt-2">
+                            Comprehensive analysis of emerging opportunities...
+                        </p>
+                    </div>
+                    <a href="/blogs/blog1.html"
+                        class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                        <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
 
-            <!-- Email Notify Form (optional) -->
-            <form class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <input type="email" placeholder="Enter your email"
-                    class="px-4 py-2 rounded-md border w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-sky-300" />
-                <button type="submit" class="px-6 py-2 bg-sky-500 text-white rounded-md hover:bg-sky-600 transition">
-                    Notify Me
-                </button>
-            </form>
-        </div>
-
-        <!-- Countdown Script -->
-        <script>
-            // Set the launch date (yyyy-mm-dd format)
-            const launchDate = new Date("2025-09-01T00:00:00").getTime();
-
-            const timer = setInterval(() => {
-                const now = new Date().getTime();
-                const distance = launchDate - now;
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById("days").textContent = String(days).padStart(2, '0');
-                document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-                document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-                document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
-
-                if (distance < 0) {
-                    clearInterval(timer);
-                    document.getElementById("countdown").innerHTML = "We're Live!";
-                }
-            }, 1000);
-        </script>
+            <!-- Right: Image -->
+            <div class="w-full lg:w-1/2">
+                <img loading="lazy" src="/assets/blogs.png" alt="Team Meeting"
+                    class="w-full h-auto rounded-2xl object-cover" />
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -246,16 +275,21 @@
             <div class="space-y-4 text-2xl font-light leading-snug">
                 <h4>Follow Us</h4>
                 <div class="flex gap-6 text-gray-600 text-xl">
-                    <a href="https://www.linkedin.com/company/ciri-uae" target="_blank" aria-label="LinkedIn"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="https://x.com/CiriUAE" target="_blank" aria-label="X / Twitter"><i
-                            class="fab fa-x-twitter"></i></a>
-                    <a href="https://facebook.com/_" target="_blank" aria-label="Facebook"><i
-                            class="fab fa-facebook"></i></a>
-                    <a href="https://instagram.com/_" target="_blank" aria-label="Instagram"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="https://youtube.com/_" target="_blank" aria-label="YouTube"><i
-                            class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/ciri-uae" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://x.com/CiriUAE" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="X / Twitter">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://facebook.com/_" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://instagram.com/_" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/_" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
                 </div>
             </div>
         </div>

@@ -36,7 +36,7 @@
             <a href="./contact.html" class="text-special-blue font-medium">Contact</a>
         </nav>
 
-        <div class="hidden md:flex items-center">
+        <div class="hidden md:flex items-center transform transition-transform duration-300 ease-in-out hover:scale-105">
             <a href="/auth/login.html"
                 class="bg-special-blue/10 text-black px-6 py-2 rounded-md hover:bg-special-blue/15 text-lg underline">
                 Sign In
@@ -65,7 +65,7 @@
         <a href="/auth/login.html" class="px-12 py-3 bg-special-blue hover:bg-special-blue/90 rounded-full w-xs">Sign
             In</a>
     </div>
-    
+
     <!-- Floating Share Button Group -->
     <div class="fixed bottom-8 right-8 z-30" id="share-container">
         <div class="flex flex-col items-center space-y-3 relative">
@@ -135,7 +135,7 @@
             isOpen = false;
         });
     </script>
-    
+
     <!-- Main -->
     <main>
         <!-- Get In Touch Section -->
@@ -160,7 +160,8 @@
                     <!-- Business Hours -->
                     <div class="bg-special-blue/10 p-6 rounded-xl">
                         <div class="flex items-center gap-2 mb-4">
-                            <span class="w-12 h-12 rounded-lg border border-gray-200 bg-white/50 backdrop-blur-sm flex justify-center items-center bg-">
+                            <span
+                                class="w-12 h-12 rounded-lg border border-gray-200 bg-white/50 backdrop-blur-sm flex justify-center items-center bg-">
                                 <i class="fas fa-clock text-special-blue text-2xl"></i>
                             </span>
                             <span class="text-xl font-semibold">Business Hours</span>
@@ -171,7 +172,8 @@
                     <!-- Location -->
                     <div class="bg-special-blue/10 p-6 rounded-xl">
                         <div class="flex items-center gap-2 mb-4">
-                            <span class="w-12 h-12 rounded-lg border border-gray-200 bg-white/50 backdrop-blur-sm flex justify-center items-center bg-">
+                            <span
+                                class="w-12 h-12 rounded-lg border border-gray-200 bg-white/50 backdrop-blur-sm flex justify-center items-center bg-">
                                 <i class="fas fa-map-marker-alt text-special-blue text-2xl"></i>
                             </span>
                             <span class="text-xl font-semibold">Location</span>
@@ -182,7 +184,8 @@
                     <!-- Contact Info -->
                     <div class="bg-special-blue/10 p-6 rounded-xl">
                         <div class="flex items-center gap-2 mb-4">
-                            <span class="w-12 h-12 rounded-lg border border-gray-200 bg-white/50 backdrop-blur-sm flex justify-center items-center bg-">
+                            <span
+                                class="w-12 h-12 rounded-lg border border-gray-200 bg-white/50 backdrop-blur-sm flex justify-center items-center bg-">
                                 <i class="fas fa-phone-alt text-special-blue text-2xl"></i>
                             </span>
                             <span class="text-xl font-semibold">Contact Information</span>
@@ -197,16 +200,16 @@
                         <span class="text-xl mb-4 block semibold">Follow Us</span>
                         <div class="flex gap-3">
                             <a href="https://twitter.com/ciriuae" target="_blank"
-                                class="bg-black text-white rounded-lg w-12 h-12 hover:bg-black/80 flex items-center justify-center"><i
+                                class="bg-black text-white rounded-lg w-12 h-12 hover:bg-black/80 flex items-center justify-center transform transition-transform duration-300 ease-in-out hover:scale-110"><i
                                     class="fab fa-x-twitter"></i></a>
                             <a href="https://wa.me/971524308085" target="_blank"
-                                class="bg-green-500 text-white rounded-lg w-12 h-12 hover:bg-green-500/80 flex items-center justify-center"><i
+                                class="bg-green-500 text-white rounded-lg w-12 h-12 hover:bg-green-500/80 flex items-center justify-center transform transition-transform duration-300 ease-in-out hover:scale-110"><i
                                     class="fab fa-whatsapp"></i></a>
                             <a href="https://www.linkedin.com/company/ciri-uae" target="_blank"
-                                class="bg-blue-600 text-white rounded-lg w-12 h-12 hover:bg-blue-600/80 flex items-center justify-center"><i
+                                class="bg-blue-600 text-white rounded-lg w-12 h-12 hover:bg-blue-600/80 flex items-center justify-center transform transition-transform duration-300 ease-in-out hover:scale-110"><i
                                     class="fab fa-linkedin-in"></i></a>
                             <a href="mailto:inquiry@ciriuae.com" target="_blank"
-                                class="bg-red-500 text-white rounded-lg w-12 h-12 hover:bg-red-500/80 flex items-center justify-center"><i
+                                class="bg-red-500 text-white rounded-lg w-12 h-12 hover:bg-red-500/80 flex items-center justify-center transform transition-transform duration-300 ease-in-out hover:scale-110"><i
                                     class="fas fa-envelope"></i></a>
                         </div>
                     </div>
@@ -262,11 +265,21 @@
             <div class="space-y-4 text-2xl font-light leading-snug">
                 <h4>Follow Us</h4>
                 <div class="flex gap-6 text-gray-600 text-xl">
-                    <a href="https://www.linkedin.com/company/ciri-uae" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://x.com/CiriUAE" target="_blank" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
-                    <a href="https://facebook.com/_" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://instagram.com/_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://youtube.com/_" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/ciri-uae" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://x.com/CiriUAE" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="X / Twitter">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://facebook.com/_" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://instagram.com/_" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/_" target="_blank" class="transform transition-transform duration-300 ease-in-out hover:scale-110" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
                 </div>
             </div>
         </div>
