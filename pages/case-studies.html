@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-special-blue: #0CA0E4;
+            --color-special-green: #DCF9E3;
+        }
+    </style>
+    <title>Case Studies - CiriUAE</title>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header
+        class="container mx-auto px-6 sm:px-12 py-4 flex items-center justify-between border-b border-gray-200 relative z-50">
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-2">
+            <img src="/assets/logo.jpg" alt="CIRIUAE Logo" class="h-12 w-auto" />
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden sm:flex items-center space-x-6 text-black">
+            <a href="/" class="hover:text-special-blue">Home</a>
+            <a href="./about.html" class="hover:text-special-blue">About</a>
+            <a href="./services.html" class="hover:text-special-blue">Services</a>
+            <a href="./careers.html" class="hover:text-special-blue">Careers</a>
+            <a href="./blogs.html" class="hover:text-special-blue">Blogs</a>
+            <a href="./contact.html" class="hover:text-special-blue">Contact</a>
+        </nav>
+
+        <div class="hidden md:flex items-center">
+            <a href="/auth/login.html"
+                class="bg-special-blue/10 text-black px-6 py-2 rounded-md hover:bg-special-blue/15 text-lg underline">
+                Sign In
+            </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menu-toggle"
+            class="sm:hidden group flex flex-col justify-between w-6 h-6 focus:outline-none z-50 cursor-pointer"
+            aria-label="Toggle menu" aria-expanded="false">
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300 origin-top-left "></span>
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300"></span>
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300 origin-bottom-left"></span>
+        </button>
+    </header>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="sm:hidden hidden fixed top-[72px] w-full h-[90vh] z-40 bg-white/80 p-8 border-b border-gray-200 animate-fade-in-down flex flex-col gap-4 items-center text-center  font-light backdrop-blur-sm">
+        <a href="/" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Home</a>
+        <a href="./about.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">About</a>
+        <a href="./services.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Services</a>
+        <a href="./careers.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Careers</a>
+        <a href="./contact.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Contact</a>
+        <a href="./blogs.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Blogs</a>
+        <a href="/auth/login.html" class="px-12 py-3 bg-special-blue hover:bg-special-blue/90 rounded-full w-xs">Sign
+            In</a>
+    </div>
+
+    <!-- Floating Share Button Group -->
+    <div class="fixed bottom-8 right-8 z-30" id="share-container">
+        <div class="flex flex-col items-center space-y-3 relative">
+
+            <!-- Share Icons -->
+            <div id="share-icons"
+                class="flex flex-col items-center space-y-3 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
+
+                <!-- Twitter -->
+                <a href="https://twitter.com/ciriuae" target="_blank">
+                    <div
+                        class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-x-twitter"></i>
+                    </div>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/971524308085" target="_blank">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-whatsapp text-green-400 text-xl"></i>
+                    </div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/company/ciri-uae" target="_blank">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-linkedin-in text-blue-500 text-xl"></i>
+                    </div>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:inquiry@ciriuae.com">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fas fa-envelope text-red-500 text-lg"></i>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Main Share Button -->
+            <div id="share-button"
+                class="bg-blue-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition cursor-pointer">
+                <i class="fas fa-share-alt text-xl"></i>
+            </div>
+        </div>
+    </div>
+    <script>
+        const shareButton = document.getElementById("share-button");
+        const shareIcons = document.getElementById("share-icons");
+        const shareContainer = document.getElementById("share-container");
+
+        let isOpen = false;
+
+        // Show on mouse enter
+        shareContainer.addEventListener("mouseenter", () => {
+            shareIcons.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
+            shareIcons.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+            isOpen = true;
+        });
+
+        // Hide on mouse leave
+        shareContainer.addEventListener("mouseleave", () => {
+            shareIcons.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+            shareIcons.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
+            isOpen = false;
+        });
+    </script>
+
+    <!-- Main -->
+    <main>
+        <!-- Case Studies -->
+        <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-white bg-special-blue">
+            <div>
+                <h3 class="text-sm font-bold uppercase tracking-wide">Case Studies</h3>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light mt-4 px-4 leading-snug">
+                    Real Success. Real Impact. Real Results.
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto leading-snug font-light md:text-xl">
+                    At CiriUAE, we don't just promise results—we deliver them. Explore real-life case studies that
+                    showcase how we've helped clients across industries streamline operations, boost revenue, and
+                    achieve long-term growth through customized strategies and smart execution.
+                </p>
+            </div>
+            <div class="w-full flex flex-col md:flex-row justify-center  gap-10">
+                <div class="flex flex-col gap-4 justify-center items-center">
+                    <span class="flex flex-col gap-4 justify-center items-center w-40 md:w-50 h-40 md:h-50 rounded-full bg-white/30 backdrop-blur-lg transform transition-transform duration-300 ease-in-out hover:scale-110">
+                        <h1 class="text-4xl md:text-5xl font-bold text-amber-400">150+</h1>
+                    </span>
+                    <p class="text-xl md:text-2xl font-light">Successful Projects</p>
+                </div>
+                <div class="flex flex-col gap-4 justify-center items-center">
+                    <span class="flex flex-col gap-4 justify-center items-center w-40 md:w-50 h-40 md:h-50 rounded-full bg-white/30 backdrop-blur-lg transform transition-transform duration-300 ease-in-out hover:scale-110">
+                        <h1 class="text-4xl md:text-5xl font-bold text-amber-400">98%</h1>
+                    </span>
+                    <p class="text-xl md:text-2xl font-light">Client Satisfaction</p>
+                </div>
+                <div class="flex flex-col gap-4 justify-center items-center">
+                    <span class="flex flex-col gap-4 justify-center items-center w-40 md:w-50 h-40 md:h-50 rounded-full bg-white/30 backdrop-blur-lg transform transition-transform duration-300 ease-in-out hover:scale-110">
+                        <h1 class=" text-4xl md:text-5xl font-bold text-amber-400">45%</h1>
+                    </span>
+                    <p class="text-xl md:text-2xl font-light">Average ROI Increase</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container mx-auto py-20 px-4 md:px-12 text-center space-y-12 text-black ">
+            <div>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light mt-4 px-4 leading-snug">
+                    Success Stories That Speak Volumes
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto leading-snug font-light md:text-xl">
+                    Discover how we've transformed businesses across various industries with innovative solutions and
+                    strategic implementations.
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto bg-special-blue/10 rounded-2xl shadow-lg p-6 md:p-12 space-y-6 transform transition-transform duration-300 ease-in-out hover:scale-105">
+                <div class="flex justify-start">
+                    <span
+                        class="inline-block bg-special-blue text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">
+                        Healthcare
+                    </span>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-start gap-12">
+                    <div class="w-full md:w-1/3">
+                        <img src="/assets/industries/healthcare.png" alt="healthcare"
+                            class="w-full h-full rounded-lg object-contain">
+                    </div>
+
+                    <div class="flex-1 text-start space-y-4 ">
+                        <h2 class="text-2xl md:text-3xl font-light text-gray-800">Operational Efficiency Revolution</h2>
+                        <p class="text-gray-600 leading-relaxed font-light md:text-xl">
+                            We helped a regional healthcare provider automate its scheduling and reporting system,
+                            transforming their entire operational workflow. Our comprehensive solution integrated
+                            patient management, staff scheduling, and real‑time reporting into a unified platform,
+                            dramatically reducing administrative burden and improving patient care quality.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-4 font-light mt-6">
+                            <div class="flex-1 bg-special-green border-l-4 border-special-blue p-4 rounded-lg">
+                                <div class="text-xl font-bold text-special-blue">40%</div>
+                                <div class="text-sm text-gray-700">Reduced Manual Workload</div>
+                            </div>
+                            <div class="flex-1 bg-special-green border-l-4 border-special-blue p-4 rounded-lg">
+                                <div class="text-xl font-bold text-special-blue">35%</div>
+                                <div class="text-sm text-gray-700">Faster Patient Turnaround</div>
+                            </div>
+                            <div class="flex-1 bg-special-green border-l-4 border-special-blue p-4 rounded-lg">
+                                <div class="text-xl font-bold text-special-blue">$2.3M</div>
+                                <div class="text-sm text-gray-700">Annual Cost Savings</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto bg-special-blue/10 rounded-2xl shadow-lg p-6 md:p-12 space-y-6 transform transition-transform duration-300 ease-in-out hover:scale-105">
+                <div class="flex justify-start">
+                    <span
+                        class="inline-block bg-special-blue text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">
+                        Retail
+                    </span>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-start gap-12">
+                    <div class="w-full md:w-1/3">
+                        <img src="/assets/industries/retail.png" alt="retail"
+                            class="w-full h-full rounded-lg object-contain">
+                    </div>
+
+                    <div class="flex-1 text-start space-y-4 ">
+                        <h2 class="text-2xl md:text-3xl font-light text-gray-800">E-commerce Revenue Explosion</h2>
+                        <p class="text-gray-600 leading-relaxed font-light md:text-xl">
+                            Our retail client experienced unprecedented growth after we completely revamped their
+                            e-commerce strategy. We implemented personalized marketing campaigns, optimized their online
+                            store for conversions, and integrated advanced analytics to track customer behavior and
+                            preferences in real-time.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-4 font-light mt-6">
+                            <div class="flex-1 bg-special-green border-l-4 border-special-blue p-4 rounded-lg">
+                                <div class="text-xl font-bold text-special-blue">60%</div>
+                                <div class="text-sm text-gray-700">Online Sales Increase
+
+                                </div>
+                            </div>
+                            <div class="flex-1 bg-special-green border-l-4 border-special-blue p-4 rounded-lg">
+                                <div class="text-xl font-bold text-special-blue">3 Months</div>
+                                <div class="text-sm text-gray-700">Time to Results</div>
+                            </div>
+                            <div class="flex-1 bg-special-green border-l-4 border-special-blue p-4 rounded-lg">
+                                <div class="text-xl font-bold text-special-blue">85%</div>
+                                <div class="text-sm text-gray-700">Customer Retention Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto bg-special-blue/10 rounded-2xl shadow-lg p-6 md:p-12 space-y-6 transform transition-transform duration-300 ease-in-out hover:scale-105">
+                <div class="flex justify-start">
+                    <span
+                        class="inline-block bg-special-blue text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">
+                        Manufacturing
+                    </span>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-start gap-12">
+                    <div class="w-full md:w-1/3">
+                        <img src="/assets/industries/manufacturing.png" alt="Manufacturing"
+                            class="w-full h-full rounded-lg object-contain">
+                    </div>
+
+                    <div class="flex-1 text-start space-y-4 ">
+                        <h2 class="text-2xl md:text-3xl font-light text-gray-800">Industry 4.0 Transformation</h2>
+                        <p class="text-gray-600 leading-relaxed font-light md:text-xl">
+                            A manufacturing client embraced Industry 4.0 with our smart automation solutions, revolutionizing their production processes. We implemented IoT sensors, predictive maintenance systems, and AI-driven quality control, resulting in significant cost reductions and productivity improvements.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-4 font-light mt-6">
+                            <div class="flex-1 bg-special-green border-l-4 border-special-blue p-4 rounded-lg">
+                                <div class="text-xl font-bold text-special-blue">25%</div>
+                                <div class="text-sm text-gray-700">Energy Cost Reduction
+                                </div>
+                            </div>
+                            <div class="flex-1 bg-special-green border-l-4 border-special-blue p-4 rounded-lg">
+                                <div class="text-xl font-bold text-special-blue">30%</div>
+                                <div class="text-sm text-gray-700">Output Increase</div>
+                            </div>
+                            <div class="flex-1 bg-special-green border-l-4 border-special-blue p-4 rounded-lg">
+                                <div class="text-xl font-bold text-special-blue">90%</div>
+                                <div class="text-sm text-gray-700">Defect Reduction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto bg-special-blue/10 rounded-2xl shadow-lg p-6 md:p-12 space-y-6 transform transition-transform duration-300 ease-in-out hover:scale-105">
+                <div class="flex justify-start">
+                    <span
+                        class="inline-block bg-special-blue text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">
+                        Financial Services
+                    </span>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-start gap-12">
+                    <div class="w-full md:w-1/3">
+                        <img src="/assets/industries/finance.png" alt="Financial Services"
+                            class="w-full h-full rounded-lg object-contain">
+                    </div>
+
+                    <div class="flex-1 text-start space-y-4 ">
+                        <h2 class="text-2xl md:text-3xl font-light text-gray-800">Digital Banking Revolution</h2>
+                        <p class="text-gray-600 leading-relaxed font-light md:text-xl">
+                            We helped a traditional bank transition to digital-first operations by implementing a comprehensive financial solution. Our platform included mobile banking, AI-powered fraud detection, and automated loan processing, significantly improving customer experience and operational efficiency.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-4 font-light mt-6">
+                            <div class="flex-1 bg-special-green border-l-4 border-special-blue p-4 rounded-lg">
+                                <div class="text-xl font-bold text-special-blue">75%</div>
+                                <div class="text-sm text-gray-700">Faster Loan Processing
+                                </div>
+                            </div>
+                            <div class="flex-1 bg-special-green border-l-4 border-special-blue p-4 rounded-lg">
+                                <div class="text-xl font-bold text-special-blue">50%</div>
+                                <div class="text-sm text-gray-700">Reduced Fraud Cases</div>
+                            </div>
+                            <div class="flex-1 bg-special-green border-l-4 border-special-blue p-4 rounded-lg">
+                                <div class="text-xl font-bold text-special-blue">95%</div>
+                                <div class="text-sm text-gray-700">Customer Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-white bg-special-blue">
+            <div>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light mt-4 px-4 leading-snug">
+                    What Our Clients Say
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto leading-snug font-light md:text-xl">
+                    Don't just take our word for it. Here's what industry leaders have to say about our transformative solutions.
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <p class="text-xl font-light text-start">"CiriUAE completely transformed our digital strategy. The results were beyond expectations. Their team's expertise and dedication to our success was evident from day one."</p>
+                    <div class="flex items-center gap-4">
+                        <span class="w-12 h-12 bg-white/80 rounded-full text-special-blue flex justify-center items-center font-bold">SM</span>
+                        <div class="text-start flex-1">
+                            <h1 class="font-medium">Sarah Mitchell</h1>
+                            <p class="font-light">CEO, Retail Brand</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <p class="text-xl font-light text-start">"Their customized approach helped us overcome long-standing operational bottlenecks. The ROI was immediate and continues to grow month after month."</p>
+                    <div class="flex items-center gap-4">
+                        <span class="w-12 h-12 bg-white/80 rounded-full text-special-blue flex justify-center items-center font-bold">JR</span>
+                        <div class="text-start flex-1">
+                            <h1 class="font-medium">James Rodriguez</h1>
+                            <p class="font-light">Director, Manufacturing Company</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <p class="text-xl font-light text-start">"The automation solutions provided by CiriUAE have revolutionized our patient care processes. We've never been more efficient or effective."</p>
+                    <div class="flex items-center gap-4">
+                        <span class="w-12 h-12 bg-white/80 rounded-full text-special-blue flex justify-center items-center font-bold">DL</span>
+                        <div class="text-start flex-1">
+                            <h1 class="font-medium">Dr. Lisa Chen</h1>
+                            <p class="font-light">Chief Medical Officer, Regional Healthcare</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <p class="text-xl font-light text-start">"Working with CiriUAE was a game-changer for our digital transformation. Their innovative solutions and strategic insights delivered exceptional results."</p>
+                    <div class="flex items-center gap-4">
+                        <span class="w-12 h-12 bg-white/80 rounded-full text-special-blue flex justify-center items-center font-bold">MK</span>
+                        <div class="text-start flex-1">
+                            <h1 class="font-medium">Michael Kumar</h1>
+                            <p class="font-light">CTO, Financial Services</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container mx-auto py-20 px-4 md:px-12 text-center space-y-12 text-black ">
+            <div>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light mt-4 px-4 leading-snug">
+                    Your Success Story Starts Here
+                </h1>
+                <p class="mt-4 max-w-4xl mx-auto leading-snug font-light md:text-xl">
+                   Ready to join our growing list of success stories? Let us help you drive real change and achieve measurable results. Get in touch to explore how we can create a customized solution for your business challenges.
+                </p>
+            </div>
+
+            <div>
+                <button class="transform transition-transform duration-300 ease-in-out hover:scale-105">
+ <a href="/pages/contact.html" class="px-12 py-3 border border-gray-400 rounded-full ">Start Your Transformation
+                    <span class="ml-3 inline-flex items-center justify-center w-6 h-6 rounded-full text-sm">
+                    <i class="fa fa-arrow-down-long -rotate-145" aria-hidden="true"></i>
+                </span>
+                </a>
+                </button>
+               
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container mx-auto border-t border-gray-200">
+        <div class="w-full p-8 md:p-12 flex flex-col md:flex-row justify-between items-start gap-10 text-gray-800">
+
+            <div class="space-y-12">
+                <h2 class="text-2xl font-light leading-snug">
+                    CiriUAE the Comprehensive<br />
+                    Business Consulting Services
+                </h2>
+                <div class="space-y-3">
+                    <div class="font-medium leading-snug">
+                        <h2> Address: </h2>
+                        <p class="font-light">Free Zone - Ajman - United Arab Emirates</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Phone: </h2>
+                        <p class="font-light">+971582428422</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Email: </h2>
+                        <p class="font-light">INQUIRY@CIRIUAE.COM</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Hours: </h2>
+                        <p class="font-light">Open today <br />
+                            09:00 am – 05:00 pm</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Navigation Links -->
+            <div class="flex flex-wrap gap-x-10 gap-y-2 text-xl font-light">
+                <div class="flex flex-col space-y-1">
+                    <a href="/" class="hover:underline">Home</a>
+                    <a href="./about.html" class="hover:underline">About</a>
+                    <a href="./services.html" class="hover:underline">Services</a>
+                    <a href="./contact.html" class="hover:underline">Contact</a>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <a href="./careers.html" class="hover:underline">Careers</a>
+                    <a href="./subscribe.html" class="hover:underline">Subscribe</a>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-2xl font-light leading-snug">
+                <h4>Follow Us</h4>
+                <div class="flex gap-6 text-gray-600 text-xl">
+                    <a href="https://www.linkedin.com/company/ciri-uae" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/CiriUAE" target="_blank" aria-label="X / Twitter"><i
+                            class="fab fa-x-twitter"></i></a>
+                    <a href="https://facebook.com/_" target="_blank" aria-label="Facebook"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/_" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/_" target="_blank" aria-label="YouTube"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-100 py-6 text-center text-sm text-gray-500">
+            <p>Copyright © 2025 CiriUAE – All Rights Reserved.</p>
+            <p>Powered by <span class="font-medium text-gray-700">NextPhase</span></p>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>
