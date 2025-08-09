@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-special-blue: #0CA0E4;
+            --color-special-green: #DCF9E3;
+        }
+    </style>
+    <title>Ciri Market Plus - CiriUAE</title>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header
+        class="container mx-auto px-6 sm:px-12 py-4 flex items-center justify-between border-b border-gray-200 relative z-50">
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-2">
+            <img src="/assets/logo.jpg" alt="CIRIUAE Logo" class="h-12 w-auto" />
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden sm:flex items-center space-x-6 text-black">
+            <a href="/" class="hover:text-special-blue">Home</a>
+            <a href="/pages/about.html" class="hover:text-special-blue">About</a>
+            <a href="/pages/services.html" class="text-special-blue font-medium">Services</a>
+            <a href="/pages/careers.html" class="hover:text-special-blue">Careers</a>
+            <a href="/pages/blogs.html" class="hover:text-special-blue">Blogs</a>
+            <a href="/pages/contact.html" class="hover:text-special-blue">Contact</a>
+        </nav>
+
+        <div
+            class="hidden md:flex items-center transform transition-transform duration-300 ease-in-out hover:scale-105">
+            <a href="/auth/login.html"
+                class="bg-special-blue/10 text-black px-6 py-2 rounded-md hover:bg-special-blue/15 text-lg underline">
+                Sign In
+            </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menu-toggle"
+            class="sm:hidden group flex flex-col justify-between w-6 h-6 focus:outline-none z-50 cursor-pointer"
+            aria-label="Toggle menu" aria-expanded="false">
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300 origin-top-left "></span>
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300"></span>
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300 origin-bottom-left"></span>
+        </button>
+    </header>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="sm:hidden hidden fixed top-[72px] w-full h-[90vh] z-40 bg-white/80 p-8 border-b border-gray-200 animate-fade-in-down flex flex-col gap-4 items-center text-center  font-light backdrop-blur-sm">
+        <a href="/" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Home</a>
+        <a href="/pages/about.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">About</a>
+        <a href="/pages/services.html"
+            class="px-12 py-3 text-special-blue font-medium hover:bg-slate-100/50 rounded-full w-xs">Services</a>
+        <a href="/pages/careers.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Careers</a>
+        <a href="/pages/contact.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Contact</a>
+        <a href="/pages/blogs.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Blogs</a>
+        <a href="/auth/login.html" class="px-12 py-3 bg-special-blue hover:bg-special-blue/90 rounded-full w-xs">Sign
+            In</a>
+    </div>
+
+    <!-- Floating Share Button Group -->
+    <div class="fixed bottom-8 right-8 z-30" id="share-container">
+        <div class="flex flex-col items-center space-y-3 relative">
+
+            <!-- Share Icons -->
+            <div id="share-icons"
+                class="flex flex-col items-center space-y-3 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
+
+                <!-- Twitter -->
+                <a href="https://twitter.com/ciriuae" target="_blank">
+                    <div
+                        class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-x-twitter"></i>
+                    </div>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/971524308085" target="_blank">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-whatsapp text-green-400 text-xl"></i>
+                    </div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/company/ciri-uae" target="_blank">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-linkedin-in text-blue-500 text-xl"></i>
+                    </div>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:inquiry@ciriuae.com">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fas fa-envelope text-red-500 text-lg"></i>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Main Share Button -->
+            <div id="share-button"
+                class="bg-blue-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition cursor-pointer">
+                <i class="fas fa-share-alt text-xl"></i>
+            </div>
+        </div>
+    </div>
+    <script>
+        const shareButton = document.getElementById("share-button");
+        const shareIcons = document.getElementById("share-icons");
+        const shareContainer = document.getElementById("share-container");
+
+        let isOpen = false;
+
+        // Show on mouse enter
+        shareContainer.addEventListener("mouseenter", () => {
+            shareIcons.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
+            shareIcons.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+            isOpen = true;
+        });
+
+        // Hide on mouse leave
+        shareContainer.addEventListener("mouseleave", () => {
+            shareIcons.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+            shareIcons.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
+            isOpen = false;
+        });
+    </script>
+
+    <!-- Main -->
+    <main>
+        <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-black ">
+            <div class="min-h-[75vh] flex flex-col justify-center items-center bg-slate-50 rounded-lg p-8">
+                <h3 class="text-sm font-bold uppercase tracking-wide">Ciri Market Plus</h3>
+                <h1 class="text-2xl md:text-5xl max-w-2xl mx-auto font-light px-4 leading-snug">
+                    Marketing & Brand Acceleration Program
+                </h1>
+                <p class="mt-4 max-w-3xl mx-auto leading-snug font-light md:text-xl">
+                    To develop and execute extensive, results-driven marketing campaigns tailored to create visibility, engagement, and trust in new or existing markets.
+                </p>
+            </div>
+            <div class="flex flex-col items-center md:items-start">
+                <h3 class="text-2xl md:text-5xl mb-8 font-light">Includes: </h3>
+                <ul class="space-y-4 md:text-xl font-light ">
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden="true"></i>
+                        Brand Localization & Positioning
+                    </li>
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                        360° Marketing Strategy (Digital + Traditional)
+
+                    </li>
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                        Influencer & PR Campaigns
+
+                    </li>
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                        In-store & Trade Marketing
+
+                    </li>
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                        E-commerce Optimization
+
+                    </li>
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                        Performance Marketing & Analytics
+
+                    </li>
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                        Launch Events & Customer Acquisition
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-white bg-special-blue">
+
+            <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light px-4 leading-snug">
+                Executive Summary
+            </h1>
+            <p class="text-xl font-light text-center max-w-3xl mx-auto">
+               The Ciri Market Plus program is designed to accelerate brand growth and market penetration through comprehensive marketing strategies. This white paper outlines the program's purpose, scope, and benefits, providing a roadmap for businesses seeking to enhance their market presence.
+            </p>
+
+        </section>
+
+        <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-black">
+            <div>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light px-4 leading-snug">
+                    Purpose
+                </h1>
+                <p class="mt-4 max-w-3xl mx-auto leading-snug font-light md:text-xl">
+                    The primary purpose of Ciri Market Plus is to develop and execute results-driven marketing campaigns that create visibility, engagement, and trust in new or existing markets. This program aims to drive business growth, increase brand awareness, and establish a strong market presence.
+                </p>
+            </div>
+        </section>
+
+        <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-white bg-special-blue">
+            <div>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light px-4 leading-snug">
+                    Program Components
+                </h1>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Brand Localization & Positioning
+                    </h1>
+                    <p class="text-xl font-light text-start">Tailoring the brand to resonate with local markets, ensuring cultural relevance and sensitivity.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        360° Marketing Strategy
+                    </h1>
+                    <p class="text-xl font-light text-start">Developing a comprehensive marketing plan that integrates digital and traditional channels to reach target audiences effectively</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Influencer & PR Campaigns
+                    </h1>
+                    <p class="text-xl font-light text-start">Leveraging influencers and public relations to build brand credibility, generate buzz, and drive engagement.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        In-store & Trade Marketing
+                    </h1>
+                    <p class="text-xl font-light text-start">Creating engaging in-store experiences and trade marketing initiatives to drive sales and increase brand visibility.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        E-commerce Optimization
+                    </h1>
+                    <p class="text-xl font-light text-start">Enhancing e-commerce platforms to improve user experience, increase conversions, and drive online sales.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Performance Marketing & Analytics
+                    </h1>
+                    <p class="text-xl font-light text-start">Utilizing data-driven marketing strategies and analytics to measure campaign effectiveness and optimize performance.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Launch Events & Customer Acquisition
+                    </h1>
+                    <p class="text-xl font-light text-start">Hosting launch events and implementing customer acquisition strategies to drive business growth and expand customer base.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-black">
+            <div>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light px-4 leading-snug">
+                    Benefits
+                </h1>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                    class="bg-special-blue/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Increased Brand Awareness
+                    </h1>
+                    <p class="text-xl font-light text-start">Ciri Market Plus helps businesses establish a strong brand presence, increasing visibility and recognition in target markets.</p>
+                </div>
+                <div
+                    class="bg-special-blue/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Improved Market Penetration
+                    </h1>
+                    <p class="text-xl font-light text-start">The program's comprehensive marketing strategies enable businesses to penetrate new markets, driving growth and expansion.</p>
+                </div>
+                <div
+                    class="bg-special-blue/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Enhanced Customer Engagement
+                    </h1>
+                    <p class="text-xl font-light text-start">By leveraging influencers, PR, and performance marketing, businesses can engage with customers more effectively, building trust and loyalty.</p>
+                </div>
+                <div
+                    class="bg-special-blue/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Data-Driven Decision Making
+                    </h1>
+                    <p class="text-xl font-light text-start">The program's analytics component provides valuable insights, enabling businesses to make informed decisions and optimize marketing strategies.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-white bg-special-blue">
+            <div>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light px-4 leading-snug">
+                    Implementation Roadmap
+                </h1>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Market Research
+                    </h1>
+                    <p class="text-xl font-light text-start">Conduct thorough market research to understand target audiences, preferences, and behaviors.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Strategy Development
+                    </h1>
+                    <p class="text-xl font-light text-start">Develop a comprehensive marketing strategy, incorporating brand localization, 360° marketing, influencer and PR campaigns, in-store and trade marketing, e-commerce optimization, performance marketing, and analytics.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Campaign Execution
+                    </h1>
+                    <p class="text-xl font-light text-start">Execute marketing campaigns, leveraging digital and traditional channels to reach target audiences.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Performance Monitoring
+                    </h1>
+                    <p class="text-xl font-light text-start">Continuously monitor campaign performance, utilizing analytics to measure effectiveness and optimize strategies.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Evaluation and Optimization
+                    </h1>
+                    <p class="text-xl font-light text-start">Evaluate campaign results, identifying areas for improvement and optimizing strategies for future growth.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container mx-auto py-20 px-4 md:px-12 text-center space-y-12 text-black ">
+            <p class="mt-4 max-w-4xl mx-auto leading-snug font-light md:text-xl">
+                By implementing the Ciri Market Plus program, businesses can accelerate their marketing efforts, drive growth, and establish a strong market presence.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container mx-auto border-t border-gray-200">
+        <div class="w-full p-8 md:p-12 flex flex-col md:flex-row justify-between items-start gap-10 text-gray-800">
+
+            <div class="space-y-12">
+                <h2 class="text-2xl font-light leading-snug">
+                    CiriUAE the Comprehensive<br />
+                    Business Consulting Services
+                </h2>
+                <div class="space-y-3">
+                    <div class="font-medium leading-snug">
+                        <h2> Address: </h2>
+                        <p class="font-light">Free Zone - Ajman - United Arab Emirates</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Phone: </h2>
+                        <p class="font-light">+971582428422</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Email: </h2>
+                        <p class="font-light">INQUIRY@CIRIUAE.COM</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Hours: </h2>
+                        <p class="font-light">Open today <br />
+                            09:00 am – 05:00 pm</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Navigation Links -->
+            <div class="flex flex-wrap gap-x-10 gap-y-2 text-xl font-light">
+                <div class="flex flex-col space-y-1">
+                    <a href="/" class="hover:underline">Home</a>
+                    <a href="/pages/about.html" class="hover:underline">About</a>
+                    <a href="/pages/services.html" class="hover:underline">Services</a>
+                    <a href="/pages/contact.html" class="hover:underline">Contact</a>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <a href="/pages/careers.html" class="hover:underline">Careers</a>
+                    <a href="/pages/subscribe.html" class="hover:underline">Subscribe</a>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-2xl font-light leading-snug">
+                <h4>Follow Us</h4>
+                <div class="flex gap-6 text-gray-600 text-xl">
+                    <a href="https://www.linkedin.com/company/ciri-uae" target="_blank"
+                        class="transform transition-transform duration-300 ease-in-out hover:scale-110"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://x.com/CiriUAE" target="_blank"
+                        class="transform transition-transform duration-300 ease-in-out hover:scale-110"
+                        aria-label="X / Twitter">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://facebook.com/_" target="_blank"
+                        class="transform transition-transform duration-300 ease-in-out hover:scale-110"
+                        aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://instagram.com/_" target="_blank"
+                        class="transform transition-transform duration-300 ease-in-out hover:scale-110"
+                        aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/_" target="_blank"
+                        class="transform transition-transform duration-300 ease-in-out hover:scale-110"
+                        aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-100 py-6 text-center text-sm text-gray-500">
+            <p>Copyright © 2025 CiriUAE – All Rights Reserved.</p>
+            <p>Powered by <span class="font-medium text-gray-700">NextPhase</span></p>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>

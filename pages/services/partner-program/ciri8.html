@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-special-blue: #0CA0E4;
+            --color-special-green: #DCF9E3;
+        }
+    </style>
+    <title>Ciri8 - CiriUAE</title>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header
+        class="container mx-auto px-6 sm:px-12 py-4 flex items-center justify-between border-b border-gray-200 relative z-50">
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-2">
+            <img src="/assets/logo.jpg" alt="CIRIUAE Logo" class="h-12 w-auto" />
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden sm:flex items-center space-x-6 text-black">
+            <a href="/" class="hover:text-special-blue">Home</a>
+            <a href="/pages/about.html" class="hover:text-special-blue">About</a>
+            <a href="/pages/services.html" class="text-special-blue font-medium">Services</a>
+            <a href="/pages/careers.html" class="hover:text-special-blue">Careers</a>
+            <a href="/pages/blogs.html" class="hover:text-special-blue">Blogs</a>
+            <a href="/pages/contact.html" class="hover:text-special-blue">Contact</a>
+        </nav>
+
+        <div
+            class="hidden md:flex items-center transform transition-transform duration-300 ease-in-out hover:scale-105">
+            <a href="/auth/login.html"
+                class="bg-special-blue/10 text-black px-6 py-2 rounded-md hover:bg-special-blue/15 text-lg underline">
+                Sign In
+            </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menu-toggle"
+            class="sm:hidden group flex flex-col justify-between w-6 h-6 focus:outline-none z-50 cursor-pointer"
+            aria-label="Toggle menu" aria-expanded="false">
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300 origin-top-left "></span>
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300"></span>
+            <span class="bar h-0.5 w-full bg-gray-800 transition-all duration-300 origin-bottom-left"></span>
+        </button>
+    </header>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="sm:hidden hidden fixed top-[72px] w-full h-[90vh] z-40 bg-white/80 p-8 border-b border-gray-200 animate-fade-in-down flex flex-col gap-4 items-center text-center  font-light backdrop-blur-sm">
+        <a href="/" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Home</a>
+        <a href="/pages/about.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">About</a>
+        <a href="/pages/services.html"
+            class="px-12 py-3 text-special-blue font-medium hover:bg-slate-100/50 rounded-full w-xs">Services</a>
+        <a href="/pages/careers.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Careers</a>
+        <a href="/pages/contact.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Contact</a>
+        <a href="/pages/blogs.html" class="px-12 py-3 hover:bg-slate-100/50 rounded-full w-xs">Blogs</a>
+        <a href="/auth/login.html" class="px-12 py-3 bg-special-blue hover:bg-special-blue/90 rounded-full w-xs">Sign
+            In</a>
+    </div>
+
+    <!-- Floating Share Button Group -->
+    <div class="fixed bottom-8 right-8 z-30" id="share-container">
+        <div class="flex flex-col items-center space-y-3 relative">
+
+            <!-- Share Icons -->
+            <div id="share-icons"
+                class="flex flex-col items-center space-y-3 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
+
+                <!-- Twitter -->
+                <a href="https://twitter.com/ciriuae" target="_blank">
+                    <div
+                        class="bg-black text-white w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-x-twitter"></i>
+                    </div>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/971524308085" target="_blank">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-whatsapp text-green-400 text-xl"></i>
+                    </div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/company/ciri-uae" target="_blank">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fab fa-linkedin-in text-blue-500 text-xl"></i>
+                    </div>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:inquiry@ciriuae.com">
+                    <div
+                        class="bg-black w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition">
+                        <i class="fas fa-envelope text-red-500 text-lg"></i>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Main Share Button -->
+            <div id="share-button"
+                class="bg-blue-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition cursor-pointer">
+                <i class="fas fa-share-alt text-xl"></i>
+            </div>
+        </div>
+    </div>
+    <script>
+        const shareButton = document.getElementById("share-button");
+        const shareIcons = document.getElementById("share-icons");
+        const shareContainer = document.getElementById("share-container");
+
+        let isOpen = false;
+
+        // Show on mouse enter
+        shareContainer.addEventListener("mouseenter", () => {
+            shareIcons.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
+            shareIcons.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+            isOpen = true;
+        });
+
+        // Hide on mouse leave
+        shareContainer.addEventListener("mouseleave", () => {
+            shareIcons.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+            shareIcons.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
+            isOpen = false;
+        });
+    </script>
+
+    <!-- Main -->
+    <main>
+        <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-black ">
+            <div class="min-h-[75vh] flex flex-col justify-center items-center bg-slate-50 rounded-lg p-8">
+                <h3 class="text-sm font-bold uppercase tracking-wide">Ciri8</h3>
+                <h1 class="text-2xl md:text-5xl max-w-2xl mx-auto font-light px-4 leading-snug">
+                    Comprehensive Business Consulting Program
+                </h1>
+                <p class="mt-4 max-w-3xl mx-auto leading-snug font-light md:text-xl">
+                    An all-in-one business engagement model designed for clients looking for a structured and
+                    complete strategy for brand or business expansion into new markets.
+                </p>
+            </div>
+            <div class="flex flex-col items-center md:items-start">
+                <h3 class="text-2xl md:text-5xl mb-8 font-light">Includes: </h3>
+                <ul class="space-y-4 md:text-xl font-light ">
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden="true"></i>
+                        Market Feasibility & Entry Strategy
+                    </li>
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                        Regulatory & Compliance Advisory
+                    </li>
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                        Legal & Structural Setup
+                    </li>
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                        Channel Partner Development
+                    </li>
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                        Marketing Roadmap & Brand Building
+                    </li>
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                        Logistics & Supply Chain Consulting
+                    </li>
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                        Sales Forecasting & ROI Modeling
+                    </li>
+                    <li class="flex items-center gap-3 text-start">
+                        <i class="fa fa-check text-gray-600" aria-hidden=" true"></i>
+                        Long-Term Market Support
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-white bg-special-blue">
+
+            <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light px-4 leading-snug">
+                Executive Summary
+            </h1>
+            <p class="text-xl font-light text-center max-w-3xl mx-auto">
+                The Ciri8 program is a comprehensive business consulting engagement model designed to support clients in
+                expanding their brand or business into new markets. This all-in-one program provides a structured and
+                complete strategy for market entry, including market feasibility, regulatory advisory, legal setup,
+                channel partner development, marketing roadmap, logistics, and sales forecasting. The goal is to equip
+                businesses with the expertise needed to successfully enter new markets and drive growth.
+            </p>
+
+        </section>
+
+        <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-black">
+            <div>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light px-4 leading-snug">
+                    Purpose
+                </h1>
+                <p class="mt-4 max-w-3xl mx-auto leading-snug font-light md:text-xl">
+                    The primary purpose of the Ciri8 program is to provide a comprehensive business consulting solution
+                    for clients looking to expand their brand or business into new markets. This program aims to support
+                    businesses in navigating the complexities of market entry and ensuring a successful expansion.
+
+                </p>
+            </div>
+        </section>
+
+        <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-white bg-special-blue">
+            <div>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light px-4 leading-snug">
+                    Program Components
+                </h1>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Market Feasibility & Entry Strategy
+                    </h1>
+                    <p class="text-xl font-light text-start">Conducting market research and feasibility studies to
+                        determine the viability of market entry and developing a tailored entry strategy.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Regulatory & Compliance Advisory
+                    </h1>
+                    <p class="text-xl font-light text-start">Providing regulatory and compliance advisory services to
+                        ensure businesses meet local laws and regulations.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Legal & Structural Setup
+                    </h1>
+                    <p class="text-xl font-light text-start">Assisting with legal and structural setup, including
+                        company registration, licensing, and permits.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Channel Partner Development
+                    </h1>
+                    <p class="text-xl font-light text-start">Identifying and developing channel partnerships to drive
+                        business growth and market penetration.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Marketing Roadmap & Brand Building
+                    </h1>
+                    <p class="text-xl font-light text-start">Developing a marketing roadmap and building brand awareness
+                        to drive customer acquisition and retention.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Logistics & Supply Chain Consulting
+                    </h1>
+                    <p class="text-xl font-light text-start">Providing logistics and supply chain consulting services to
+                        ensure efficient and effective operations.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Sales Forecasting & ROI Modeling
+                    </h1>
+                    <p class="text-xl font-light text-start">Developing sales forecasts and ROI models to drive business
+                        growth and measure performance.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Long-Term Market Support
+                    </h1>
+                    <p class="text-xl font-light text-start">Providing long-term market support to ensure businesses
+                        continue to thrive and grow in new markets.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-black">
+            <div>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light px-4 leading-snug">
+                    Benefits
+                </h1>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                    class="bg-special-blue/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Comprehensive Market Entry Solution
+                    </h1>
+                    <p class="text-xl font-light text-start">The Ciri8 program provides a comprehensive solution for
+                        market entry, ensuring businesses have the expertise needed to succeed.</p>
+                </div>
+                <div
+                    class="bg-special-blue/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Reduced Risk
+                    </h1>
+                    <p class="text-xl font-light text-start">By conducting market feasibility studies and providing
+                        regulatory advisory services, the program helps reduce the risk of market entry.</p>
+                </div>
+                <div
+                    class="bg-special-blue/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Increased Efficiency
+                    </h1>
+                    <p class="text-xl font-light text-start">The program's logistics and supply chain consulting
+                        services ensure efficient and effective operations.</p>
+                </div>
+                <div
+                    class="bg-special-blue/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Improved Brand Visibility
+                    </h1>
+                    <p class="text-xl font-light text-start">The program's marketing roadmap and brand building services
+                        drive brand awareness and customer acquisition.</p>
+                </div>
+                <div
+                    class="bg-special-blue/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Long-Term Success
+                    </h1>
+                    <p class="text-xl font-light text-start">The program's long-term market support ensures businesses
+                        continue to thrive and grow in new markets.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container mx-auto py-12 px-4 md:px-12 text-center space-y-12 text-white bg-special-blue">
+            <div>
+                <h1 class="text-2xl md:text-5xl max-w-4xl mx-auto font-light px-4 leading-snug">
+                    Implementation Roadmap
+                </h1>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Program Onboarding
+                    </h1>
+                    <p class="text-xl font-light text-start">Businesses will undergo an onboarding process to ensure
+                        alignment with program goals and objectives.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Market Research
+                    </h1>
+                    <p class="text-xl font-light text-start">Businesses will participate in market research and
+                        feasibility studies to determine market viability.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Entry Strategy Development
+                    </h1>
+                    <p class="text-xl font-light text-start">Businesses will develop a tailored entry strategy based on
+                        market research findings.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Regulatory Compliance
+                    </h1>
+                    <p class="text-xl font-light text-start">Businesses will receive regulatory and compliance advisory
+                        services to ensure local laws and regulations are met.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Legal Setup
+                    </h1>
+                    <p class="text-xl font-light text-start">Businesses will receive assistance with legal and
+                        structural setup, including company registration and licensing.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Channel Partner Development
+                    </h1>
+                    <p class="text-xl font-light text-start">Businesses will identify and develop channel partnerships
+                        to drive business growth.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Marketing Roadmap
+                    </h1>
+                    <p class="text-xl font-light text-start">Businesses will develop a marketing roadmap and build brand
+                        awareness to drive customer acquisition.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Logistics & Supply Chain
+                    </h1>
+                    <p class="text-xl font-light text-start">Businesses will receive logistics and supply chain
+                        consulting services to ensure efficient operations.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Sales Forecasting
+                    </h1>
+                    <p class="text-xl font-light text-start">Businesses will develop sales forecasts and ROI models to
+                        drive business growth.</p>
+                </div>
+                <div
+                    class="bg-white/10 backdrop-blur-lg p-8 space-y-8  transform transition-transform duration-300 ease-in-out hover:scale-105">
+                    <h1 class=" text-xl md:text-3xl font-light text-start leading-snug">
+                        Long-Term Support
+                    </h1>
+                    <p class="text-xl font-light text-start">Businesses will receive long-term market support to ensure
+                        continued growth and success.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container mx-auto py-20 px-4 md:px-12 text-center space-y-12 text-black ">
+            <p class="mt-4 max-w-4xl mx-auto leading-snug font-light md:text-xl">
+                By participating in the Ciri8 program, businesses can gain the expertise needed to successfully enter
+                new markets and drive growth.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container mx-auto border-t border-gray-200">
+        <div class="w-full p-8 md:p-12 flex flex-col md:flex-row justify-between items-start gap-10 text-gray-800">
+
+            <div class="space-y-12">
+                <h2 class="text-2xl font-light leading-snug">
+                    CiriUAE the Comprehensive<br />
+                    Business Consulting Services
+                </h2>
+                <div class="space-y-3">
+                    <div class="font-medium leading-snug">
+                        <h2> Address: </h2>
+                        <p class="font-light">Free Zone - Ajman - United Arab Emirates</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Phone: </h2>
+                        <p class="font-light">+971582428422</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Email: </h2>
+                        <p class="font-light">INQUIRY@CIRIUAE.COM</p>
+                    </div>
+                    <div class="font-medium leading-snug">
+                        <h2> Hours: </h2>
+                        <p class="font-light">Open today <br />
+                            09:00 am – 05:00 pm</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Navigation Links -->
+            <div class="flex flex-wrap gap-x-10 gap-y-2 text-xl font-light">
+                <div class="flex flex-col space-y-1">
+                    <a href="/" class="hover:underline">Home</a>
+                    <a href="/pages/about.html" class="hover:underline">About</a>
+                    <a href="/pages/services.html" class="hover:underline">Services</a>
+                    <a href="/pages/contact.html" class="hover:underline">Contact</a>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <a href="/pages/careers.html" class="hover:underline">Careers</a>
+                    <a href="/pages/subscribe.html" class="hover:underline">Subscribe</a>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-2xl font-light leading-snug">
+                <h4>Follow Us</h4>
+                <div class="flex gap-6 text-gray-600 text-xl">
+                    <a href="https://www.linkedin.com/company/ciri-uae" target="_blank"
+                        class="transform transition-transform duration-300 ease-in-out hover:scale-110"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://x.com/CiriUAE" target="_blank"
+                        class="transform transition-transform duration-300 ease-in-out hover:scale-110"
+                        aria-label="X / Twitter">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://facebook.com/_" target="_blank"
+                        class="transform transition-transform duration-300 ease-in-out hover:scale-110"
+                        aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://instagram.com/_" target="_blank"
+                        class="transform transition-transform duration-300 ease-in-out hover:scale-110"
+                        aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://youtube.com/_" target="_blank"
+                        class="transform transition-transform duration-300 ease-in-out hover:scale-110"
+                        aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-100 py-6 text-center text-sm text-gray-500">
+            <p>Copyright © 2025 CiriUAE – All Rights Reserved.</p>
+            <p>Powered by <span class="font-medium text-gray-700">NextPhase</span></p>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>
